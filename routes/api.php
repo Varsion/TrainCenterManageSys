@@ -16,9 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+/**
+ * @author Dujingwen <github.com/DJWKK>
+ */
 Route::prefix('/approval')->namespace('Approval')->group(function(){
-    Route::get('pass','ExamController@pass');
-    Route::post('noPass','ExamController@noPass');
+    Route::get('pass','ExamController@pass');//审核通过
+    Route::post('noPass','ExamController@noPass');//审核不通过
 });
 
 
