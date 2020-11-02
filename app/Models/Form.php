@@ -74,10 +74,7 @@ class Form extends Model
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',1)
                 ->whereIn('form_status',[2,4,6,8,11])
-                ->where('form_id',$form_id)
-                ->orWhere('form_id','like','%'.$form_id.'%')
-                ->where('applicant_name',$form_id)
-                ->orWhere('applicant_name','like','%'.$form_id.'%')
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -139,10 +136,7 @@ class Form extends Model
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',2)
                 ->whereIn('form_status',[2,4,6,8,11])
-                ->where('form_id',$form_id)
-                ->orWhere('form_id','like','%'.$form_id.'%')
-                ->where('applicant_name',$form_id)
-                ->orWhere('applicant_name','like','%'.$form_id.'%')
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -181,10 +175,7 @@ class Form extends Model
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',3)
                 ->whereIn('form_status',[2,4,6,8,11])
-                ->where('form_id',$form_id)
-                ->orWhere('form_id','like','%'.$form_id.'%')
-                ->where('applicant_name',$form_id)
-                ->orWhere('applicant_name','like','%'.$form_id.'%')
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -432,10 +423,7 @@ class Form extends Model
             $data=self::select('form_id','applicant_name','created_at')
                 ->where('type_id',4)
                 ->whereIn('form_status',[2,4,6,8,11])
-                ->where('form_id',$form_id)
-                ->orWhere('form_id','like','%'.$form_id.'%')
-                ->where('applicant_name',$form_id)
-                ->orWhere('applicant_name','like','%'.$form_id.'%')
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
