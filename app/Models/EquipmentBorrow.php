@@ -88,34 +88,20 @@ class EquipmentBorrow extends Model
                 ->where('form.form_id',$form_id)
                 ->select(
                     'equipment_borrow.borrow_department',
-
                     'equipment_borrow.borrow_application',
                     'equipment_borrow.destine_start_time',
                     'equipment_borrow.destine_end_time',
                     'equipment_borrow.borrower_name',
-
-                'equipment_borrow.borrower_phone',
-                    'approve.borrowing_department_name',
-                    'approve.borrowing_manager_name',
-                'approve.center_director_name',
-                    'approve.device_administrator_out_name',
-                    'equipment_borrow.borrower_name',
-                    'approve.updated_at',
-                    'approve.reason',
-                    'approve.device_administrator_acceptance_name',
-                    'equipment_borrow.borrower_name')
-                ->where('equipment_borrow.form_id',$form_id)
-                ->get();
-            $data2=self::join('equipment_borrow_checklist','equipment_borrow_checklist.form_id','equipment_borrow.form_id')
-                ->join('equipment','equipment_borrow_checklist.equipment_id','equipment.equipment_id')
-                ->select('equipment.equipment_name','equipment.model','equipment_borrow_checklist.equipment_number','equipment.annex')
-                ->where('equipment_borrow.form_id',$form_id)
-                ->get();
-            $data['frominfo']=$data1;
-            $data['equiplist']=$data2;
+                    'equipment_borrow.borrower_phone',
+                    'form.form_id',
+                    'form.form_status',
+                    'form.created_at',
+                    'approve.reason'
+                )
+                ->first();
             return $data;
-        }catch (\Exception $e){
-            logError('获取实验室申请表信息错误',[$e->getMessage()]);
+        }catch(Exception $e){
+            logError("存入数据库失败",[$e->getMessage()]);
             return null;
         }
     }
