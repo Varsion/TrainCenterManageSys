@@ -76,7 +76,7 @@ class OpenLaboratoryLoan extends Model
                 ->Join('form_status', 'form.form_status', '=', 'form_status.status_id')
                 ->Join('approve', 'form.form_id', '=', 'approve.form_id')
                 ->where('form.form_id', $form_id)
-                ->select('form_status.status_name', 'form.updated_at', 'approve.reason', 'open_laboratory_loan.reason_use', 'open_laboratory_loan.porject_name', 'open_laboratory_loan.start_time', 'open_laboratory_loan.end_time', 'form.created_at')
+                ->select('form_status.status_id', 'form.updated_at', 'approve.reason', 'open_laboratory_loan.reason_use', 'open_laboratory_loan.porject_name', 'open_laboratory_loan.start_time', 'open_laboratory_loan.end_time', 'form.created_at')
                 ->get();
             return $data;
         } catch (\Exception $e) {

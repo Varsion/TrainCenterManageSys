@@ -823,7 +823,7 @@ class Form extends Model
                 ->Join('class', 'laboratory_loan.class_id', '=', 'class.class_id')
                 ->Join('approve', 'form.form_id', '=', 'approve.form_id')
                 ->where('form.form_id', $form_id)
-                ->select('form_status.status_name', 'form.updated_at', 'approve.reason', 'laboratory.laboratory_name', 'laboratory.laboratory_id', 'laboratory_loan.course_name',
+                ->select('form_status.status_id', 'form.updated_at', 'approve.reason', 'laboratory.laboratory_name', 'laboratory.laboratory_id', 'laboratory_loan.course_name',
                     'class.class_name', 'laboratory_loan.number', 'laboratory_loan.purpose', 'laboratory_loan.start_time', 'laboratory_loan.end_time',
                     'laboratory_loan.start_class', 'laboratory_loan.end_class', 'form.applicant_name', 'laboratory_loan.phone', 'form.created_at')
                 ->get();
