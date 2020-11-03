@@ -14,7 +14,7 @@ use App\Http\Requests\SupAdmin\ClassController\ReshowClassRequest;
 use App\Http\Requests\SupAdmin\ClassController\ReshowDepartmentRequest;
 use Illuminate\Http\Request;
 use App\Models\Department;
-use App\Models\clas;
+use App\Models\Clas;
 
 class ClassController extends Controller
 {
@@ -123,7 +123,7 @@ class ClassController extends Controller
     public function showClass()
     {
 
-        $date = clas::tby_showClass();
+        $date = Clas::tby_showClass();
 
         if($date!=null){
             return json_success('班级展示成功',$date,200);
@@ -139,7 +139,7 @@ class ClassController extends Controller
     public function reShowClass(ReshowClassRequest $request)
     {
         $tby = $request;
-        $date = clas::tby_reShowClass($tby);
+        $date = Clas::tby_reShowClass($tby);
 
         if($date!=null){
             return json_success('班级回显成功',$date,200);
@@ -156,7 +156,7 @@ class ClassController extends Controller
     public function deleteClass(DelClassRequest $request)
     {
         $tby = $request;
-        $date = clas::tby_deleteClass($tby);
+        $date = Clas::tby_deleteClass($tby);
 
         if($date!=null){
             return json_success('班级删除成功',$date,200);
@@ -173,7 +173,7 @@ class ClassController extends Controller
     public function addClass(AddClassRequest $request)
     {
         $tby = $request;
-        $date = clas::tby_addClass($tby);
+        $date = Clas::tby_addClass($tby);
 
         if($date!=null){
             return json_success('班级增加成功',$date,200);
@@ -190,7 +190,7 @@ class ClassController extends Controller
     public function modifyClass(AddClassRequest $request)
     {
         $tby = $request;
-        $date = clas::tby_modifyClass($tby);
+        $date = Clas::tby_modifyClass($tby);
 
         if($date!=null){
             return json_success('班级修改成功',$date,200);
@@ -206,7 +206,7 @@ class ClassController extends Controller
     public function findClass(FindClassRequest $request)
     {
         $tby = $request;
-        $date = clas::tby_findClass($tby);
+        $date = Clas::tby_findClass($tby);
 
         if($date!=null){
             return json_success('班级查询成功',$date,200);
