@@ -109,7 +109,7 @@ class ShowController extends Controller
             }
             if ($data1[$i]['type_id'] ==1){
                 $data1[$i]['type_id']="实验室借用申请表单";
-            }else if ($data1[$i]['type_name'] ==2){
+            }else if ($data1[$i]['type_id'] ==2){
                 $data1[$i]['type_id']="期末实验教学检查记录表";
             }else if ($data1[$i]['type_id'] ==3){
                 $data1[$i]['type_id']="实验室仪器设备借用单";
