@@ -27,9 +27,9 @@ class LaboratoryLoan extends Model
                 ->join('class','class.class_id','laboratory_loan.class_id')
                 ->where('form.form_id',$form_id)
                 ->where('form.type_id',1)
-                ->whereIn('form.form_status',[6,11])
                 ->select('laboratory_loan.created_at','laboratory.laboratory_name','laboratory_loan.laboratory_id',
                     'laboratory_loan.course_name','class.class_name','laboratory_loan.number','laboratory_loan.purpose',
+                    'laboratory_loan.start_time','laboratory_loan.end_time',
                     'laboratory_loan.start_class','laboratory_loan.end_class','form.applicant_name','laboratory_loan.phone',
                     'approve.borrowing_department_name','approve.borrowing_manager_name','approve.center_director_name')
                 ->get();
