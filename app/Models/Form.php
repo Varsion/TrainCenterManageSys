@@ -31,7 +31,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',1)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -73,7 +73,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',1)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
@@ -115,7 +115,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',2)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -135,7 +135,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',2)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
@@ -154,7 +154,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',3)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->paginate(6);
             return $data;
         }catch (\Exception $e){
@@ -174,7 +174,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',3)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
@@ -402,7 +402,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','updated_at')
                 ->where('type_id',4)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->paginate(5);
             return $data;
         }catch (\Exception $e){
@@ -422,7 +422,7 @@ class Form extends Model
         try{
             $data=self::select('form_id','applicant_name','created_at')
                 ->where('type_id',4)
-                ->whereIn('form_status',[2,4,6,8,11])
+                ->where('form_status',11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
                 ->paginate(6);
             return $data;
