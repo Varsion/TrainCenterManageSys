@@ -28,6 +28,7 @@ class Equipment extends Model
                 'equipment_name' => $equipment_name,
                 'number' => $number,
                 'annex' => $annex,
+
             ]);
             return $res;
         }catch (\Exception $e) {
@@ -61,7 +62,7 @@ class Equipment extends Model
     {
         try{
             $res = self::where('model','=',$model)
-                ->select('model','equipment_name','number','annex')
+                ->select('model','equipment_name','number','annex','equipment_id')
                 ->orderby('model','asc')
                 ->paginate(5);
             return $res;
