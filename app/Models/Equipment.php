@@ -28,7 +28,7 @@ class Equipment extends Model
                 'equipment_name' => $equipment_name,
                 'number' => $number,
                 'annex' => $annex,
-
+                'created_at' => now()
             ]);
             return $res;
         }catch (\Exception $e) {
