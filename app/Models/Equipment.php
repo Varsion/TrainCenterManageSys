@@ -182,7 +182,7 @@ class Equipment extends Model
     Public static function showNew()
     {
         try{
-            $res = self::select('equipment_name','model','number','annex')
+            $res = self::select('equipment_id','equipment_name','model','number','annex')
                 ->orderby('model','asc')
                 ->paginate(5);
             return $res;
