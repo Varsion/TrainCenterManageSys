@@ -77,10 +77,10 @@ class Equipment extends Model
      * @param $equipment_name
      * @return $equipment_name $model $number $annex
      */
-    Public static function goBack($equipment_name)
+    Public static function goBack($equipment_id)
     {
         try{
-            $res = self::where('equipment_name','=',$equipment_name)
+            $res = self::where('equipment_id','=',$equipment_id)
                 ->select('model','equipment_name','number','annex')
                 ->first();
             return $res;
