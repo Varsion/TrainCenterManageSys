@@ -26,7 +26,7 @@ class GoBackRequest extends FormRequest
     public function rules()
     {
         return [
-            'equipment_name' => 'required',
+            'equipment_id' => 'required',
         ];
     }
     /**
