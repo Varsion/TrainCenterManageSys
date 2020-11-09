@@ -105,7 +105,7 @@ class LaboratoryLoan extends Model
                 ->where('approve.device_administrator_acceptance_name', '=', $name)
                 ->where('form.form_status', '=', $lev)
                 ->get();
-            $data['other_information'] = $data1;
+            $data['other_information_ll'] = $data1;
             return $data ? $data : false;
         } catch (\Exception $e) {
             logError('实验室表单详情搜索出错', [$e->getMessage()]);

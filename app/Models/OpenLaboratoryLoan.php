@@ -123,7 +123,7 @@ class OpenLaboratoryLoan extends Model
                 ->where('form.form_status', '=', $lev)
                 ->get();
             $data['open_laboratory_student_list'] = $data2;
-            $data['other_information'] = $data3;
+            $data['other_information_oll'] = $data3;
             return $data ? $data : false;
         } catch (\Exception $e) {
             logError('搜索错误', [$e->getMessage()]);
