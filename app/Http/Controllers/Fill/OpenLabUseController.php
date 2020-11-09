@@ -56,6 +56,8 @@ class OpenLabUseController extends Controller
     Public function viewOpenLabUse(ViewLabBorrowRequest $request){
         $form_id = $request['form_id'];
         $data = OpenLaboratoryLoan::hwc_viewOpenLabUse($form_id);
+        $data1 = OpenLaboratoryStudentList::hwc_viewOpenLabManUse($form_id);
+        $data['equipment_array']=$data1;
         return $data?
             json_success('开放实验室使用申请表单展示成功!',$data,200) :
             json_fail('开放实验室使用申请表单展示失败!',null,100);

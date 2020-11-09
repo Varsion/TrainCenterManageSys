@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fill;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Fill\WriteController\TeachAddRequest;
 use App\Http\Requests\Fill\WriteController\TeachMoveRequest;
+use App\Models\Form;
 use App\Models\Laboratory;
 use App\Models\TeachingInspection;
 use App\Models\TeachingInspectionInfo;
@@ -51,6 +52,8 @@ class WriteController extends Controller{
 
     public function teachAdd(TeachAddRequest $request)
     {
+        $code = $request['code'];
+        $name =  getDinginfo($code)->name;
         $data = $request['data'];
         for ($i = 0; $i < count($data); $i++) {
             $validator = Validator::make($data[$i], [
@@ -69,6 +72,7 @@ class WriteController extends Controller{
             $id = 'B' . date("ymdis");
             $res=TeachingInspection::cwp_addId($id);
             $result = TeachingInspectionInfo::cwp_add($id, $data);
+        $results = Form::cwp_addInfor($id,$name);
             return $result&&$res?
                 json_success('成功!', null, 200) :
                 json_fail('失败!', null, 100);

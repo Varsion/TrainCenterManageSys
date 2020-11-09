@@ -231,7 +231,7 @@ class Form extends Model
     public static function lzz_from($form_id,$name){
         try {
                 $id = 4;
-                $sta = 1;
+                $sta = 11;
             $data = Self::insert([
                 'form_id' =>$form_id,
                 'applicant_name'=>$name,
@@ -809,7 +809,7 @@ class Form extends Model
                 ->Join('class', 'laboratory_loan.class_id', '=', 'class.class_id')
                 ->Join('approve', 'form.form_id', '=', 'approve.form_id')
                 ->where('form.form_id', $form_id)
-                ->select('form_status.status_name', 'form.updated_at', 'approve.reason', 'laboratory.laboratory_name', 'laboratory.laboratory_id', 'laboratory_loan.course_name',
+                ->select('form_status.status_id', 'form.updated_at', 'approve.reason', 'laboratory.laboratory_name', 'laboratory.laboratory_id', 'laboratory_loan.course_name',
                     'class.class_name', 'laboratory_loan.number', 'laboratory_loan.purpose', 'laboratory_loan.start_time', 'laboratory_loan.end_time',
                     'laboratory_loan.start_class', 'laboratory_loan.end_class', 'form.applicant_name', 'laboratory_loan.phone', 'form.created_at')
                 ->get();
@@ -838,6 +838,33 @@ class Form extends Model
             return false;
         }
     }
+
+
+
+
+    /**
+     * 填报实验室借用申请
+     * @author caiwenpin <github.com/codercwp>
+     * @param ,$id, $name
+     * @return array
+     */
+    Public static function cwp_addInfor($id,$name)
+    {
+        try {
+            $data = self::create([
+                'form_id' => $id,
+                'applicant_name' => $name,
+                'type_id' => 2,
+                'form_status' => 11,
+            ]);
+            return $data;
+        } catch (\Exception $e) {
+            logError('填报错误', [$e->getMessage()]);
+            return null;
+        }
+    }
+
+
 
 }
 
