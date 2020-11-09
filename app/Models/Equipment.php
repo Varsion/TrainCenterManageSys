@@ -28,6 +28,7 @@ class Equipment extends Model
                 'equipment_name' => $equipment_name,
                 'number' => $number,
                 'annex' => $annex,
+                'created_at' => now()
             ]);
             return $res;
         }catch (\Exception $e) {
@@ -61,7 +62,7 @@ class Equipment extends Model
     {
         try{
             $res = self::where('model','=',$model)
-                ->select('model','equipment_name','number','annex')
+                ->select('model','equipment_name','number','annex','equipment_id')
                 ->orderby('model','asc')
                 ->paginate(5);
             return $res;
@@ -76,10 +77,10 @@ class Equipment extends Model
      * @param $equipment_name
      * @return $equipment_name $model $number $annex
      */
-    Public static function goBack($equipment_name)
+    Public static function goBack($equipment_id)
     {
         try{
-            $res = self::where('equipment_name','=',$equipment_name)
+            $res = self::where('equipment_id','=',$equipment_id)
                 ->select('model','equipment_name','number','annex')
                 ->first();
             return $res;
@@ -181,7 +182,7 @@ class Equipment extends Model
     Public static function showNew()
     {
         try{
-            $res = self::select('equipment_name','model','number','annex')
+            $res = self::select('equipment_id','equipment_name','model','number','annex')
                 ->orderby('model','asc')
                 ->paginate(5);
             return $res;

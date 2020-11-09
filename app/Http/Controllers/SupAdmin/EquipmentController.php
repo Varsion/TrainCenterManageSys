@@ -60,8 +60,8 @@ class EquipmentController extends Controller
      */
     Public function goBack(GoBackRequest $request)
     {
-        $equipment_name = $request['equipment_name'];
-        $data = Equipment::goBack($equipment_name);
+        $equipment_id = $request['equipment_id'];
+        $data = Equipment::goBack($equipment_id);
         return $data?
             json_success('成功查询信息',$data,'200'):
             json_fail('查询信息错误',null,'100');
