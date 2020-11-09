@@ -231,7 +231,7 @@ class Form extends Model
     public static function lzz_from($form_id,$name){
         try {
                 $id = 4;
-                $sta = 1;
+                $sta = 11;
             $data = Self::insert([
                 'form_id' =>$form_id,
                 'applicant_name'=>$name,
