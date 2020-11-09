@@ -14,7 +14,7 @@ use App\Http\Requests\SupAdmin\ClassController\ReshowClassRequest;
 use App\Http\Requests\SupAdmin\ClassController\ReshowDepartmentRequest;
 use Illuminate\Http\Request;
 use App\Models\Department;
-use App\Models\Clas;
+use App\Models\Clas;
 
 class ClassController extends Controller
 {
