@@ -4,19 +4,24 @@ namespace App\Http\Controllers\SupAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Form;
-use App\Http\Requests\SupAdmin\labBorDispalyInfoRequest;
-use App\Http\Requests\SupAdmin\labBorSelectRequest;
-use App\Http\Requests\SupAdmin\labEquipSelectRequest;
-use App\Http\Requests\SupAdmin\labOpenDisplayInfoRequest;
-use App\Http\Requests\SupAdmin\labOpenSelectRequest;
-use App\Http\Requests\SupAdmin\labEquipDisplayInfoRequest;
-use App\Http\Requests\SupAdmin\TeaRecordSelectRequest;
-use App\Http\Requests\SupAdmin\TeaRecordDisplayInfoRequest;
+
+use App\Http\Requests\SupAdmin\FormDetails\labBorDispalyInfoRequest;
+use App\Http\Requests\SupAdmin\FormDetails\labBorSelectRequest;
+use App\Http\Requests\SupAdmin\FormDetails\labEquipSelectRequest;
+use App\Http\Requests\SupAdmin\FormDetails\labOpenDisplayInfoRequest;
+use App\Http\Requests\SupAdmin\FormDetails\labOpenSelectRequest;
+use App\Http\Requests\SupAdmin\FormDetails\labEquipDisplayInfoRequest;
+use App\Http\Requests\SupAdmin\FormDetails\TeaRecordSelectRequest;
+use App\Http\Requests\SupAdmin\FormDetails\TeaRecordDisplayInfoRequest;
+
 use App\Models\LaboratoryLoan;
 use App\Models\OpenLaboratoryLoan;
 use App\Models\EquipmentBorrow;
 use App\Models\TeachingInspectionInfo;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+
 
 class FormDetailsController extends Controller
 {
@@ -43,9 +48,9 @@ class FormDetailsController extends Controller
     Public function labBorDispalyInfo(labBorDispalyInfoRequest $request){
         $form_id = $request->input('form_id');
         $data = LaboratoryLoan::cm_labBorDispalyInfo($form_id);
-        return $data ?
-            json_success('成功!', $data, 200) :
-            json_fail('失败!', null, 100);
+          return $data ?
+              json_success('成功!', $data, 200) :
+              json_fail('失败!', null, 100);
     }
 
     /**
@@ -55,12 +60,13 @@ class FormDetailsController extends Controller
       * form_id 表单编号
       * @return json
       */
-    Public function labBorSelect(labBorSelectRequest $request){
+    Public function labBorSelect(Request $request){
+            $page = $request -> page;
             $form_id = $request->input('form_id');
             $data=Form::cm_labBorSelect($form_id);
-            return $data?
-                json_success('成功!',$data,200) :
-                json_fail('失败!',null,100);
+             return $data?
+                 json_success('成功!',$data,200) :
+                 json_fail('失败!',null,100);
         }
 
     /**

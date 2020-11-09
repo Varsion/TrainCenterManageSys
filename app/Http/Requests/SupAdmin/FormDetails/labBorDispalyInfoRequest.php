@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\SupAdmin;
+namespace App\Http\Requests\SupAdmin\FormDetails;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class labOpenSelectRequest extends FormRequest
+class labBorDispalyInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

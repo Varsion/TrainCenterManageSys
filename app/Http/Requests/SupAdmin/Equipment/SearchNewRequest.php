@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\SupAdmin;
+namespace App\Http\Requests\SupAdmin\Equipment;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
-class TeaRecordSelectRequest extends FormRequest
+class SearchNewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class TeaRecordSelectRequest extends FormRequest
     public function rules()
     {
         return [
-            'form_id' => 'required|string',
+            'model' => 'required',
         ];
     }
     /**

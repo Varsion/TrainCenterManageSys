@@ -13,5 +13,5 @@
 
 Route::get('/', function () {
     logInfo('网站部署成功');
-    return json_success('网站部署成功');
+    return json_success('TrainCenterManageSys项目部署成功','Success',200);
 });

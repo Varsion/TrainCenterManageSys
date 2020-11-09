@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\SupAdmin;
+namespace App\Http\Requests\Fill\WriteController;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class labEquipDisplayInfoRequest extends FormRequest
+class TeachAddRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +26,11 @@ class labEquipDisplayInfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'form_id' => 'required|string',
+
         ];
     }
-    /**
-     * @param Validator $validator
-     */
     protected function failedValidation(Validator $validator)
     {
-        throw (new HttpResponseException(json_fail('参数错误!',$validator->errors()->all(),100)));
+        throw (new HttpResponseException(json_fail('参数错误!',$validator->errors()->all(),422)));
     }
 }
