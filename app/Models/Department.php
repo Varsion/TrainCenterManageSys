@@ -12,6 +12,23 @@ class Department extends Model
     protected $guarded = [];
 
     /**
+     * 展示系部页面,无分页
+     * @author tangbangyan <github.com/doublebean>
+     * @return mixed
+     */
+    public static function tby_showDepartmentAll()
+    {
+        try{
+            $date=department::select('*')
+                ->get();
+            return $date;
+        }catch (Exception $e){
+            logger::Error('系部界面无分页展示失败',[$e->getMessage()]);
+        }
+    }
+
+
+    /**
      * 展示系部页面
      * @author tangbangyan <github.com/doublebean>
      * @return mixed
@@ -26,6 +43,8 @@ class Department extends Model
             logger::Error('系部界面展示失败',[$e->getMessage()]);
         }
     }
+
+
 
     /**
      * 回显当前数据的系部

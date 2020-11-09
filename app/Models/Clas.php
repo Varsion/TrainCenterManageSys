@@ -111,7 +111,7 @@ class Clas extends Model
     {
         try{
             $date=clas::join('department','department.department_id','class.department_id')
-            ->where('class_name','like','%'.$tby['class_name'].'%')
+                ->where('class_name','like','%'.$tby['class_name'].'%')
                 ->paginate(5);
             return $date;
         }catch (Exception $e){
