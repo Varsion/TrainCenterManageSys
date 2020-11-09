@@ -35,6 +35,22 @@ class ClassController extends Controller
     }
 
     /**
+     *系部页面展示数据,无分页
+     * @author tangbangyan <github.com/doublebean>
+     * @return json
+     */
+    public function showDepartmentAll()
+    {
+
+        $date = department::tby_showDepartmentAll();
+
+        if($date!=null){
+            return json_success('系部无分页展示成功',$date,200);
+        }
+        return json_fail('系部无分页展示失败',$date,100);
+    }
+
+    /**
      *回显当前数据的系部
      * @author tangbangyan <github.com/doublebean>
      * @return json

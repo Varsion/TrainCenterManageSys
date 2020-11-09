@@ -33,8 +33,9 @@ Route::prefix('supadmin')->namespace('SupAdmin')->group(function () {
     Route::get('tearecorddisplay', 'FormDetailsController@TeaRecordDisplay'); //期末教学记录检查表页面展示
     Route::post('tearecorddispalyinfo', 'FormDetailsController@TeaRecordDisplayInfo'); //期末教学记录检查表页面查看
     Route::post('tearecordselect', 'FormDetailsController@TeaRecordSelect'); //期末教学记录检查表页面搜索
-  
+
     Route::get('showdepartment','ClassController@showdepartment');//系部管理页面展示
+    Route::get('showdepartmentall','ClassController@showdepartmentall');//系部管理页面展示,无分页
     Route::get('reshowdepartment','ClassController@reshowdepartment');//回显当前数据的系部
     Route::post('deletedepartment','ClassController@deletedepartment');//删除系部
     Route::post('adddepartment','ClassController@adddepartment');//增加系部
