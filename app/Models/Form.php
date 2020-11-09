@@ -853,6 +853,33 @@ class Form extends Model
         }
     }
 
+
+
+
+    /**
+     * 填报实验室借用申请
+     * @author caiwenpin <github.com/codercwp>
+     * @param ,$id, $name
+     * @return array
+     */
+    Public static function cwp_addInfor($id,$name)
+    {
+        try {
+            $data = self::create([
+                'form_id' => $id,
+                'applicant_name' => $name,
+                'type_id' => 2,
+                'form_status' => 11,
+            ]);
+            return $data;
+        } catch (\Exception $e) {
+            logError('填报错误', [$e->getMessage()]);
+            return null;
+        }
+    }
+
+
+
 }
 
 
