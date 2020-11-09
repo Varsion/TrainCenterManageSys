@@ -14,7 +14,7 @@ use App\Http\Requests\SupAdmin\ClassController\ReshowClassRequest;
 use App\Http\Requests\SupAdmin\ClassController\ReshowDepartmentRequest;
 use Illuminate\Http\Request;
 use App\Models\Department;
-use App\Models\Clas;
+use App\Models\Clas;
 
 class ClassController extends Controller
 {
@@ -32,6 +32,22 @@ class ClassController extends Controller
             return json_success('系部展示成功',$date,200);
         }
         return json_fail('系部展示失败',$date,100);
+    }
+
+    /**
+     *系部页面展示数据,无分页
+     * @author tangbangyan <github.com/doublebean>
+     * @return json
+     */
+    public function showDepartmentAll()
+    {
+
+        $date = department::tby_showDepartmentAll();
+
+        if($date!=null){
+            return json_success('系部无分页展示成功',$date,200);
+        }
+        return json_fail('系部无分页展示失败',$date,100);
     }
 
     /**
