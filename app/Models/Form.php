@@ -231,7 +231,7 @@ class Form extends Model
     public static function lzz_from($form_id,$name){
         try {
                 $id = 4;
-                $sta = 1;
+                $sta = 11;
             $data = Self::insert([
                 'form_id' =>$form_id,
                 'applicant_name'=>$name,
@@ -838,6 +838,33 @@ class Form extends Model
             return false;
         }
     }
+
+
+
+
+    /**
+     * 填报实验室借用申请
+     * @author caiwenpin <github.com/codercwp>
+     * @param ,$id, $name
+     * @return array
+     */
+    Public static function cwp_addInfor($id,$name)
+    {
+        try {
+            $data = self::create([
+                'form_id' => $id,
+                'applicant_name' => $name,
+                'type_id' => 2,
+                'form_status' => 11,
+            ]);
+            return $data;
+        } catch (\Exception $e) {
+            logError('填报错误', [$e->getMessage()]);
+            return null;
+        }
+    }
+
+
 
 }
 
