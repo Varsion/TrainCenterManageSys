@@ -27,10 +27,6 @@ class RmNewRequest extends FormRequest
     {
         return [
             'equipment_id' => 'required',
-            'model' => 'required',
-            'equipment_name' => 'required',
-            'number' => 'required',
-            'annex' => 'required',
         ];
     }
     /**
