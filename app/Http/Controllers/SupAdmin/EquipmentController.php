@@ -85,7 +85,7 @@ class EquipmentController extends Controller
         $equipment_name = $request['equipment_name'];
         $number = $request['number'];
         $annex = $request['annex'];
-        $data = Equipment::exitNew($equipment_id,$model,$equipment_name,$number,$annex);
+        $data = Equipment::exitNew($equipment_id,$equipment_name,$model,$number,$annex);
         return $data?
             json_success('成功修改设备信息',$data,'200'):
             json_fail('修改设备信息失败',null,'100');
@@ -106,11 +106,7 @@ class EquipmentController extends Controller
     Public function rmNew(RmNewRequest $request)
     {
         $equipment_id = $request['equipment_id'];
-        $model = $request['model'];
-        $equipment_name = $request['equipment_name'];
-        $number = $request['number'];
-        $annex = $request['annex'];
-        $data = Equipment::rmNew($equipment_id,$model,$equipment_name,$number,$annex);
+        $data = Equipment::rmNew($equipment_id);
         return $data?
             json_success('成功修改设备信息',$data,'200'):
             json_fail('修改设备信息失败',null,'100');

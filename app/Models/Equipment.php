@@ -117,16 +117,11 @@ class Equipment extends Model
      * @param equipment_id
      * @return null
      */
-    Public static function rmNew($equipment_id,$equipment_name,$model,$number,$annex)
+    Public static function rmNew($equipment_id)
     {
         try{
             $res = self::where('equipment_id','=',$equipment_id)
-                ->delete([
-                    'equipment_name'=>$equipment_name,
-                    'model'=>$model,
-                    'number'=>$number,
-                    'annex'=>$annex,
-                ]);
+                ->delete();
             return $res;
         }catch (\Exception $e){
             logError('删除设备失败',[$e->getMessage()]);
