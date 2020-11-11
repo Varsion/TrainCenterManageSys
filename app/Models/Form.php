@@ -643,10 +643,7 @@ class Form extends Model
                 ->where('approve.device_administrator_acceptance_name', '=', $name)
                 ->where('form.applicant_name', '!=', $name)
                 ->where('form.form_status', '=', $lev)
-                ->where('form.form_id', '=', $infos)
-                ->orWhere('form.form_id', 'like', '%' . $infos . '%')
-                ->where('form.applicant_name', '=', $infos)
-                ->orWhere('form.applicant_name', 'like', '%' . $infos . '%')
+                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%".$infos."%'")
                 ->orderBy('form.created_at', 'desc')
                 ->get();
             return $data ? $data : false;
