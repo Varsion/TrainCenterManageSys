@@ -641,9 +641,16 @@ class Form extends Model
                 ->where('approve.center_director_name', '=', $name)
                 ->orwhere('approve.device_administrator_out_name', '=', $name)
                 ->where('approve.device_administrator_acceptance_name', '=', $name)
-                ->where('form.applicant_name', '!=', $name)
-                ->where('form.form_status', '=', $lev)
-                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like %".$infos."%")
+                ->where(function ($query) use ($name, $lev, $infos) {
+                    $query->where('form.applicant_name', '!=', $name)
+                        ->where('form.form_status', '=', $lev)
+                        ->where('form.form_id', 'like', '%' . $infos . '%');
+                })
+                ->orWhere(function ($query) use ($name, $lev, $infos) {
+                    $query->where('form.applicant_name', '!=', $name)
+                        ->where('form.form_status', '=', $lev)
+                        ->where('form.applicant_name', 'like', '%' . $infos . '%');
+                })
                 ->orderBy('form.created_at', 'desc')
                 ->get();
             return $data ? $data : false;
