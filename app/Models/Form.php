@@ -753,16 +753,22 @@ class Form extends Model
             } elseif ($role == "设备管理员") {
                 $rule = 7;
             }
-
             $res = Form::join('form_type','form.type_id','form_type.type_id')
-                ->select('form.form_id','form.applicant_name','form_type.type_name')
-                ->where('form.applicant_name','!=',$name)
-                ->where('form.form_status','=',$rule)
-                // ->where('form.form_id','like','%'.$data.'%')
-                // ->orWhere('form.applicant_name','like','%'.$data.'%')
-                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%".$form_id."%'")
-                ->orderBy('form.created_at','desc')
-                ->get();
+                    ->select('form.form_id','form.applicant_name','form_type.type_name')
+                    ->where(function ($query)use($name,$rule,$data)
+                    {
+                        $query->where('form.applicant_name', '!=', $name)
+                            ->where('form.form_status', '=', $rule)
+                            ->where('form.form_id','like','%'.$data.'%');
+                    })
+                    ->orWhere(function ($query)use($name,$rule,$data)
+                    {
+                        $query->where('form.applicant_name', '!=', $name)
+                            ->where('form.form_status', '=', $rule)
+                            ->where('form.applicant_name','like','%'.$data.'%');
+                    })
+                    ->orderBy('form.created_at','desc')
+                    ->get();
             return $res ?
                 $res :
                 false;
