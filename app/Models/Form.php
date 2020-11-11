@@ -114,7 +114,7 @@ class Form extends Model
     Public static function cm_labOpenDisplay(){
         try{
             $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',2)
+                ->where('type_id',5)
                 ->where('form_status',11)
                 ->paginate(6);
             return $data;
