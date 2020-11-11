@@ -636,11 +636,13 @@ class Form extends Model
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.form_id', 'form.applicant_name', 'form_type.type_name', 'form_status.status_name')
-                ->where('approve.borrowing_department_name', '=', $name)
-                ->orwhere('approve.borrowing_manager_name', '=', $name)
-                ->where('approve.center_director_name', '=', $name)
-                ->orwhere('approve.device_administrator_out_name', '=', $name)
-                ->where('approve.device_administrator_acceptance_name', '=', $name)
+                ->where(function($query)use ($name){
+                    $query->where('approve.borrowing_department_name', '=', $name)
+                    ->where('approve.borrowing_manager_name', '=', $name)
+                    ->where('approve.center_director_name', '=', $name)
+                    ->where('approve.device_administrator_out_name', '=', $name)
+                    ->where('approve.device_administrator_acceptance_name', '=', $name);
+                })
                 ->where(function ($query) use ($name, $lev, $infos) {
                     $query->where('form.applicant_name', '!=', $name)
                         ->where('form.form_status', '=', $lev)
