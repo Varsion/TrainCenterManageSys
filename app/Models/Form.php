@@ -267,7 +267,6 @@ class Form extends Model
     }
 
     /**
-     /**
      * 得到所有表单展示数据
      * @author yangsiqi <github.com/Double-R111>
      * @param $code
@@ -293,13 +292,12 @@ class Form extends Model
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.form_id', 'form.applicant_name', 'form_status.status_name', 'form_type.type_name')
-                ->where('approve.borrowing_department_name', '=', $name)
-                ->orwhere('approve.borrowing_manager_name', '=', $name)
-                ->where('approve.center_director_name', '=', $name)
-                ->orwhere('approve.device_administrator_out_name', '=', $name)
-                ->where('approve.device_administrator_acceptance_name', '=', $name)
-                ->where('form.form_status', '=', $lev)
-                ->where('form.applicant_name', '!=', $name)
+                ->where('form.applicant_name', '!=', $name) // 首先 提交人不是当前用户
+                ->where('approve.borrowing_department_name', $name) //依次查询每个审批人字段
+                ->orWhere('approve.borrowing_manager_name', $name)
+                ->orWhere('approve.center_director_name', $name)
+                ->orwhere('approve.device_administrator_out_name', $name)
+                ->orWhere('approve.device_administrator_acceptance_name', $name)
                 ->orderby('form.created_at', 'desc')
                 ->get();
 
@@ -633,28 +631,25 @@ class Form extends Model
             }
 
             $data = Form::join('form_type', 'form.type_id', 'form_type.type_id')
-                ->join('form_status', 'form.form_status', 'form_status.status_id')
-                ->join('approve', 'form.form_id', 'approve.form_id')
-                ->select('form.form_id', 'form.applicant_name', 'form_type.type_name', 'form_status.status_name')
-                ->where(function($query)use ($name){
-                    $query->where('approve.borrowing_department_name', '=', $name)
-                    ->where('approve.borrowing_manager_name', '=', $name)
-                    ->where('approve.center_director_name', '=', $name)
-                    ->where('approve.device_administrator_out_name', '=', $name)
-                    ->where('approve.device_administrator_acceptance_name', '=', $name);
-                })
-                ->where(function ($query) use ($name, $lev, $infos) {
-                    $query->where('form.applicant_name', '!=', $name)
-                        ->where('form.form_status', '=', $lev)
-                        ->where('form.form_id', 'like', '%' . $infos . '%');
-                })
-                ->orWhere(function ($query) use ($name, $lev, $infos) {
-                    $query->where('form.applicant_name', '!=', $name)
-                        ->where('form.form_status', '=', $lev)
-                        ->where('form.applicant_name', 'like', '%' . $infos . '%');
-                })
-                ->orderBy('form.created_at', 'desc')
-                ->get();
+                        ->join('form_status', 'form.form_status', 'form_status.status_id')
+                        ->join('approve', 'form.form_id', 'approve.form_id')
+                        ->select('form.form_id', 'form.applicant_name', 'form_type.type_name', 'form_status.status_name')
+                        ->where('form.applicant_name', '!=', $name) // 首先 提交人不是当前用户
+                        ->where('approve.borrowing_department_name', $name) //依次查询每个审批人字段
+                        ->orWhere('approve.borrowing_manager_name', $name)
+                        ->orWhere('approve.center_director_name', $name)
+                        ->orwhere('approve.device_administrator_out_name', $name)
+                        ->orWhere('approve.device_administrator_acceptance_name', $name)
+                        ->where(function ($query)use($name,$infos)
+                        {
+                            $query->where('form.form_id','like','%'.$infos.'%');
+                        })
+                        ->orWhere(function ($query)use($name,$infos)
+                        {
+                            $query->where('form.applicant_name','like','%'.$infos.'%');
+                        })
+                        ->orderBy('form.created_at', 'desc')
+                        ->get();
             return $data ? $data : false;
         } catch (\Exception $e) {
             logError('搜索错误', [$e->getMessage()]);
