@@ -658,7 +658,14 @@ class Form extends Model
                         ->orWhere('approve.center_director_name', $name)
                         ->orwhere('approve.device_administrator_out_name', $name)
                         ->orWhere('approve.device_administrator_acceptance_name', $name)
-                        ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%" . $infos . "%'")
+                        ->where(function ($query)use($name,$infos)
+                        {
+                            $query->where('form.form_id','like','%'.$infos.'%');
+                        })
+                        ->orWhere(function ($query)use($name,$infos)
+                        {
+                            $query->where('form.applicant_name','like','%'.$infos.'%');
+                        })
                         ->orderBy('form.created_at', 'desc')
                         ->get();
             return $data ? $data : false;
