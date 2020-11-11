@@ -114,7 +114,7 @@ class Form extends Model
     Public static function cm_labOpenDisplay(){
         try{
             $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',2)
+                ->where('type_id',5)
                 ->where('form_status',11)
                 ->paginate(6);
             return $data;
@@ -643,7 +643,7 @@ class Form extends Model
                 ->where('approve.device_administrator_acceptance_name', '=', $name)
                 ->where('form.applicant_name', '!=', $name)
                 ->where('form.form_status', '=', $lev)
-                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%".$infos."%'")
+                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like %".$infos."%")
                 ->orderBy('form.created_at', 'desc')
                 ->get();
             return $data ? $data : false;
