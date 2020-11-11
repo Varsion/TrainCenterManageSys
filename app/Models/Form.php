@@ -24,38 +24,40 @@ class Form extends Model
 
     /**
      * 实验室借用申请表页面展示
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labBorDisplay(){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',1)
-                ->where('form_status',11)
+    public static function cm_labBorDisplay()
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 1)
+                ->where('form_status', 11)
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('实验室借用申请表展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('实验室借用申请表展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 根据表id查找表单信息
-     * @author tangshengyou
      * @param
      *  $form_id 表单id
      *  $applicant_name 申请人姓名
      * @return array
+     * @author tangshengyou
      */
-    public static function tsy_select($form_id,$applicant_name){
-        try{
-            $data = self::where('form_id',$form_id)
-                ->where('applicant_name',$applicant_name)
-                ->select('form_id','type_id','form_status')
+    public static function tsy_select($form_id, $applicant_name)
+    {
+        try {
+            $data = self::where('form_id', $form_id)
+                ->where('applicant_name', $applicant_name)
+                ->select('form_id', 'type_id', 'form_status')
                 ->first();
             return $data;
-        }catch(Exception $e) {
+        } catch (Exception $e) {
             logError("查找失败", [$e->getMessage()]);
             return null;
         }
@@ -64,21 +66,22 @@ class Form extends Model
 
     /**
      * 实验室借用申请表页面搜索
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $form_id
      * form_id 表单编号
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labBorSelect($form_id){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',1)
-                ->where('form_status',11)
-                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
+    public static function cm_labBorSelect($form_id)
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 1)
+                ->where('form_status', 11)
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('实验室借用申请表搜索展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('实验室借用申请表搜索展示错误', [$e->getMessage()]);
             return null;
         }
     }
@@ -106,90 +109,93 @@ class Form extends Model
     }
 
     /**
-
      * 开放实验室使用申请表页面展示
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labOpenDisplay(){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',5)
-                ->where('form_status',11)
+    public static function cm_labOpenDisplay()
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 5)
+                ->where('form_status', 11)
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('开放实验室使用申请表展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('开放实验室使用申请表展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 开放实验室使用申请表页面搜索
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $form_id
      * form_id 表单编号
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labOpenSelect($form_id){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',2)
-                ->where('form_status',11)
-                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
+    public static function cm_labOpenSelect($form_id)
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 2)
+                ->where('form_status', 11)
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('开放实验室使用申请表搜索展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('开放实验室使用申请表搜索展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 实验室仪器借用申请表页面展示
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labEquipDisplay(){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',3)
-                ->where('form_status',11)
+    public static function cm_labEquipDisplay()
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 3)
+                ->where('form_status', 11)
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('实验室仪器借用申请表展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('实验室仪器借用申请表展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 实验室仪器借用申请表页面搜索
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $form_id
      * form_id 表单编号
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_labEquipSelect($form_id){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',3)
-                ->where('form_status',11)
-                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
+    public static function cm_labEquipSelect($form_id)
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 3)
+                ->where('form_status', 11)
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('实验室仪器借用申请表搜索展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('实验室仪器借用申请表搜索展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 获取当前用户填报的所有表单
-     * @author tangshengyou
      * @param
      *  $applicant_name 申请人姓名
      * @return array
+     * @author tangshengyou
      */
     public static function tsy_selectType($applicant_name)
     {
@@ -204,12 +210,13 @@ class Form extends Model
             return null;
         }
     }
+
     /**
      * 插入失败后删除
-     * @author tangshengyou
      * @param
      *  $form_id 表单编号
      * @return array
+     * @author tangshengyou
      */
     public static function tsy_delete($form_id)
     {
@@ -222,36 +229,40 @@ class Form extends Model
             return false;
         }
     }
-        /**
+
+    /**
      * 填报入库
      * @param $form_id
      * @param $name
      * @return |null
      */
-    public static function lzz_from($form_id,$name){
+    public static function lzz_from($form_id, $name)
+    {
         try {
-                $id = 4;
-                $sta = 11;
+            $id = 4;
+            $sta = 11;
             $data = Self::insert([
-                'form_id' =>$form_id,
-                'applicant_name'=>$name,
-                'type_id' =>$id,
-                'form_status' =>$sta,
-                'created_at'=>now()
+                'form_id' => $form_id,
+                'applicant_name' => $name,
+                'type_id' => $id,
+                'form_status' => $sta,
+                'created_at' => now()
             ]);
             return $data;
-        } catch(\Exception $e){
-            logError('实验室运行记录填报错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('实验室运行记录填报错误', [$e->getMessage()]);
             return null;
         }
     }
+
     /**
      * 开放实验室使用申请填报
-     * @author HuWeiChen <github.com/nathaniel-kk>
      * @param [String] $code
      * @return array
+     * @author HuWeiChen <github.com/nathaniel-kk>
      */
-    Public static function hwc_openLabUseBor($form_id,$code){
+    public static function hwc_openLabUseBor($form_id, $code)
+    {
         try {
             $data = self::create([
                 'form_id' => $form_id,
@@ -260,18 +271,18 @@ class Form extends Model
                 'form_status' => 1,
             ]);
             return $data;
-        } catch(\Exception $e){
-            logError('开放实验室使用申请填报错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('开放实验室使用申请填报错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
-     /**
+     * /**
      * 得到所有表单展示数据
-     * @author yangsiqi <github.com/Double-R111>
      * @param $code
      * @return false
+     * @author yangsiqi <github.com/Double-R111>
      */
     public static function ysq_getAll($code)
     {
@@ -289,15 +300,21 @@ class Form extends Model
                 $lev = 7;
             }
             $data = Form::join('form_type', 'form.type_id', 'form_type.type_id')
-
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.form_id', 'form.applicant_name', 'form_status.status_name', 'form_type.type_name')
-                ->where('approve.borrowing_department_name', '=', $name)
-                ->orwhere('approve.borrowing_manager_name', '=', $name)
-                ->where('approve.center_director_name', '=', $name)
-                ->orwhere('approve.device_administrator_out_name', '=', $name)
-                ->where('approve.device_administrator_acceptance_name', '=', $name)
+//                ->where('approve.borrowing_department_name', '=', $name)
+//                ->orwhere('approve.borrowing_manager_name', '=', $name)
+//                ->where('approve.center_director_name', '=', $name)
+//                ->orwhere('approve.device_administrator_out_name', '=', $name)
+//                ->where('approve.device_administrator_acceptance_name', '=', $name)
+                ->where(function ($query) use ($name) {
+                    $query->where('approve.borrowing_department_name', '=', $name)
+                        ->orwhere('approve.borrowing_manager_name', '=', $name)
+                        ->orwhere('approve.center_director_name', '=', $name)
+                        ->orwhere('approve.device_administrator_out_name', '=', $name)
+                        ->orwhere('approve.device_administrator_acceptance_name', '=', $name);
+                })
                 ->where('form.form_status', '=', $lev)
                 ->where('form.applicant_name', '!=', $name)
                 ->orderby('form.created_at', 'desc')
@@ -393,60 +410,62 @@ class Form extends Model
     }
 
     /**
-
      * 期末教学记录检查表页面展示
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_teaRecordDisplay(){
-        try{
-            $data=self::select('form_id','applicant_name','updated_at')
-                ->where('type_id',4)
-                ->where('form_status',11)
+    public static function cm_teaRecordDisplay()
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'updated_at')
+                ->where('type_id', 4)
+                ->where('form_status', 11)
                 ->paginate(5);
             return $data;
-        }catch (\Exception $e){
-            logError('期末教学记录检查表展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('期末教学记录检查表展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 期末教学记录检查表页面搜索
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $form_id
      * form_id 表单编号
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cm_teaRecordSelect($form_id){
-        try{
-            $data=self::select('form_id','applicant_name','created_at')
-                ->where('type_id',4)
-                ->where('form_status',11)
-                ->whereRaw("concat(`form_id`,`applicant_name`) like '%".$form_id."%'")
+    public static function cm_teaRecordSelect($form_id)
+    {
+        try {
+            $data = self::select('form_id', 'applicant_name', 'created_at')
+                ->where('type_id', 4)
+                ->where('form_status', 11)
+                ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
                 ->paginate(6);
             return $data;
-        }catch (\Exception $e){
-            logError('期末教学记录检查表页面搜索展示错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('期末教学记录检查表页面搜索展示错误', [$e->getMessage()]);
             return null;
         }
     }
 
     /**
      * 期末教学记录检查表页面查看(记录人，记录人编号)
-     * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $form_id
      * form_id 表单编号
      * @return array
+     * @author ChenMiao <github.com/Yidaaa-u>
      */
-    Public static function cmm_teaRecordDisplayInfo($form_id){
+    public static function cmm_teaRecordDisplayInfo($form_id)
+    {
         try {
-            $data=self::select('applicant_name','form_id')
-                ->where('form_id',$form_id)
+            $data = self::select('applicant_name', 'form_id')
+                ->where('form_id', $form_id)
                 ->get();
             return $data;
-        }catch (\Exception $e){
-            logError('期末教学记录检查表页面查看记录人，记录编号错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('期末教学记录检查表页面查看记录人，记录编号错误', [$e->getMessage()]);
             return null;
         }
     }
@@ -514,61 +533,68 @@ class Form extends Model
 
     /**
      * 获取当前用户填报的所有表单
-     * @author tangshengyou
      * @param $info
      * @return true false true 为存入成功 false 存入失败
+     * @author tangshengyou
      */
-    public static function tsy_create($info){
-        try{
+    public static function tsy_create($info)
+    {
+        try {
             self::create([
-                'form_id'=>$info['form_id'],
-                'applicant_name'=>$info['name'],
-                'type_id'=>3,
-                'form_status'=>1
+                'form_id' => $info['form_id'],
+                'applicant_name' => $info['name'],
+                'type_id' => 3,
+                'form_status' => 1
             ]);
             return true;
-        }catch(Exception $e){
-            logError("存入失败",[$e->getMessage()]);
+        } catch (Exception $e) {
+            logError("存入失败", [$e->getMessage()]);
             return false;
         }
     }
+
     /**
      * 根据表单id获取表单的所有数据
-     * @author tangshengyou
      * @param $form_id
      * @return true false true 为存入成功 false 存入失败
+     * @author tangshengyou
      */
-    public static function tsy_selectId($form_id){
-        try{
-            $data=self::where('form_id',$form_id)
-                ->select('form_id','form_status','created_at')
+    public static function tsy_selectId($form_id)
+    {
+        try {
+            $data = self::where('form_id', $form_id)
+                ->select('form_id', 'form_status', 'created_at')
                 ->get();
             return $data;
-        }catch(Exception $e){
-            logError("查找失败",[$e->getMessage()]);
-            return false;}
+        } catch (Exception $e) {
+            logError("查找失败", [$e->getMessage()]);
+            return false;
+        }
     }
+
     /*
      * 申请人回显
      * @return |null
      */
-    public static function lzz_nameView($code){
+    public static function lzz_nameView($code)
+    {
         try {
-            $res  = getDinginfo($code);
+            $res = getDinginfo($code);
             $data = $res->name;
             return $data;
-        } catch(\Exception $e){
-            logError('申请人回显错误',[$e->getMessage()]);
+        } catch (\Exception $e) {
+            logError('申请人回显错误', [$e->getMessage()]);
             return null;
         }
     }
+
     /**
      * 填报实验室借用申请
-     * @author HuWeiChen <github.com/nathaniel-kk>
      * @param [String] $code , [String] $form_id
      * @return array
+     * @author HuWeiChen <github.com/nathaniel-kk>
      */
-    Public static function hwc_fillLabBorrow($form_id,$code)
+    public static function hwc_fillLabBorrow($form_id, $code)
     {
         try {
             $data = self::create([
@@ -611,10 +637,10 @@ class Form extends Model
     }
 
     /**
-     *  @author yangsiqi <github.com/Double-R111>
      * @param $infos
      * @param $code
      * @return false
+     * @author yangsiqi <github.com/Double-R111>
      */
     public static function ysq_Query($infos, $code)
     {
@@ -631,17 +657,18 @@ class Form extends Model
             } elseif ($role == '设备管理员') {
                 $lev = 7;
             }
-
             $data = Form::join('form_type', 'form.type_id', 'form_type.type_id')
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.form_id', 'form.applicant_name', 'form_type.type_name', 'form_status.status_name')
-                ->where(function($query)use ($name){
+
+                ->where(function ($query) use ($name) {
                     $query->where('approve.borrowing_department_name', '=', $name)
-                    ->where('approve.borrowing_manager_name', '=', $name)
-                    ->where('approve.center_director_name', '=', $name)
-                    ->where('approve.device_administrator_out_name', '=', $name)
-                    ->where('approve.device_administrator_acceptance_name', '=', $name);
+                        ->where('approve.borrowing_manager_name', '=', $name)
+                        ->where('approve.center_director_name', '=', $name)
+                        ->where('approve.device_administrator_out_name', '=', $name)
+                        ->where('approve.device_administrator_acceptance_name', '=', $name);
+
                 })
                 ->where(function ($query) use ($name, $lev, $infos) {
                     $query->where('form.applicant_name', '!=', $name)
@@ -701,10 +728,10 @@ class Form extends Model
 
     /**
      * 通过类别查询表单详情
-     * @author yangsiqi <github.com/Double-R111>
      * @param $type_name
      * @param $code
      * @return false
+     * @author yangsiqi <github.com/Double-R111>
      */
     public static function ysq_searchType($type_name, $code)
     {
@@ -725,11 +752,13 @@ class Form extends Model
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.applicant_name', 'form.form_id', 'form_type.type_name', 'form_status.status_name')
-                ->where('approve.borrowing_department_name', '=', $name)
-                ->orwhere('approve.borrowing_manager_name', '=', $name)
-                ->where('approve.center_director_name', '=', $name)
-                ->orwhere('approve.device_administrator_out_name', '=', $name)
-                ->where('approve.device_administrator_acceptance_name', '=', $name)
+                ->where(function ($query) use ($name) {
+                    $query->where('approve.borrowing_department_name', '=', $name)
+                        ->orwhere('approve.borrowing_manager_name', '=', $name)
+                        ->orwhere('approve.center_director_name', '=', $name)
+                        ->orwhere('approve.device_administrator_out_name', '=', $name)
+                        ->orwhere('approve.device_administrator_acceptance_name', '=', $name);
+                })
                 ->where('form.form_status', '=', $lev)
                 ->where('form.applicant_name', '!=', $name)
                 ->where('type_name', '=', $type_name)
@@ -762,6 +791,7 @@ class Form extends Model
             } elseif ($role == "设备管理员") {
                 $rule = 7;
             }
+
             $res = Form::join('form_type','form.type_id','form_type.type_id')
                     ->select('form.form_id','form.applicant_name','form_type.type_name')
                     ->where(function ($query)use($name,$rule,$data)
@@ -778,6 +808,7 @@ class Form extends Model
                     })
                     ->orderBy('form.created_at','desc')
                     ->get();
+
             return $res ?
                 $res :
                 false;
@@ -790,9 +821,9 @@ class Form extends Model
 
     /**
      * 分类查询展示各类表单详情
-     * @author yangsiqi <github.com/Double-R111>
      * @param $form_id
      * @return false
+     * @author yangsiqi <github.com/Double-R111>
      */
     public static function ysq_reshowAll($form_id)
     {
@@ -809,9 +840,9 @@ class Form extends Model
 
     /**
      * 实验室借用申请展示
+     * @return array
      * @author HuWeiChen <github.com/nathaniel-kk>
      * [String] $form_id
-     * @return array
      */
     public static function hwc_viewLabBorrow($form_id)
     {
@@ -832,6 +863,7 @@ class Form extends Model
             return null;
         }
     }
+
     /**
      * 分类查询待审批表单
      * @auther ZhongChun <github.com/RobbEr929>
@@ -853,15 +885,13 @@ class Form extends Model
     }
 
 
-
-
     /**
      * 填报实验室借用申请
-     * @author caiwenpin <github.com/codercwp>
      * @param ,$id, $name
      * @return array
+     * @author caiwenpin <github.com/codercwp>
      */
-    Public static function cwp_addInfor($id,$name)
+    public static function cwp_addInfor($id, $name)
     {
         try {
             $data = self::create([
@@ -876,7 +906,6 @@ class Form extends Model
             return null;
         }
     }
-
 
 
 }
