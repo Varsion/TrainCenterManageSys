@@ -661,12 +661,14 @@ class Form extends Model
                 ->join('form_status', 'form.form_status', 'form_status.status_id')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form.form_id', 'form.applicant_name', 'form_type.type_name', 'form_status.status_name')
+
                 ->where(function ($query) use ($name) {
                     $query->where('approve.borrowing_department_name', '=', $name)
                         ->where('approve.borrowing_manager_name', '=', $name)
                         ->where('approve.center_director_name', '=', $name)
                         ->where('approve.device_administrator_out_name', '=', $name)
                         ->where('approve.device_administrator_acceptance_name', '=', $name);
+
                 })
                 ->where(function ($query) use ($name, $lev, $infos) {
                     $query->where('form.applicant_name', '!=', $name)
@@ -790,15 +792,23 @@ class Form extends Model
                 $rule = 7;
             }
 
-            $res = Form::join('form_type', 'form.type_id', 'form_type.type_id')
-                ->select('form.form_id', 'form.applicant_name', 'form_type.type_name')
-                ->where('form.applicant_name', '!=', $name)
-                ->where('form.form_status', '=', $rule)
-                // ->where('form.form_id','like','%'.$data.'%')
-                // ->orWhere('form.applicant_name','like','%'.$data.'%')
-                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%" . $data . "%'")
-                ->orderBy('form.created_at', 'desc')
-                ->get();
+            $res = Form::join('form_type','form.type_id','form_type.type_id')
+                    ->select('form.form_id','form.applicant_name','form_type.type_name')
+                    ->where(function ($query)use($name,$rule,$data)
+                    {
+                        $query->where('form.applicant_name', '!=', $name)
+                            ->where('form.form_status', '=', $rule)
+                            ->where('form.form_id','like','%'.$data.'%');
+                    })
+                    ->orWhere(function ($query)use($name,$rule,$data)
+                    {
+                        $query->where('form.applicant_name', '!=', $name)
+                            ->where('form.form_status', '=', $rule)
+                            ->where('form.applicant_name','like','%'.$data.'%');
+                    })
+                    ->orderBy('form.created_at','desc')
+                    ->get();
+
             return $res ?
                 $res :
                 false;
