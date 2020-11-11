@@ -758,8 +758,9 @@ class Form extends Model
                 ->select('form.form_id','form.applicant_name','form_type.type_name')
                 ->where('form.applicant_name','!=',$name)
                 ->where('form.form_status','=',$rule)
-                ->where('form.form_id','like','%'.$data.'%')
-                ->orWhere('form.applicant_name','like','%'.$data.'%')
+                // ->where('form.form_id','like','%'.$data.'%')
+                // ->orWhere('form.applicant_name','like','%'.$data.'%')
+                ->whereRaw("concat(`form.form_id`,`form.applicant_name`) like '%".$form_id."%'")
                 ->orderBy('form.created_at','desc')
                 ->get();
             return $res ?
