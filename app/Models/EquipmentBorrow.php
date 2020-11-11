@@ -278,12 +278,14 @@ class EquipmentBorrow extends Model
                 ->join('form_status', 'form_status.status_id', 'form.form_status')
                 ->join('approve', 'form.form_id', 'approve.form_id')
                 ->select('form_type.type_name', 'form_status.status_name', 'approve.reason')
-                ->where('approve.borrowing_department_name', '=', $name)
-                ->orwhere('approve.borrowing_manager_name', '=', $name)
-                ->where('approve.center_director_name', '=', $name)
-                ->orwhere('approve.device_administrator_out_name', '=', $name)
-                ->where('approve.device_administrator_acceptance_name', '=', $name)
-                ->where('form.form_status', '=', $lev)
+                ->where(function ($query) use ($name) {
+                    $query->where('approve.borrowing_department_name', '=', $name)
+                        ->orwhere('approve.borrowing_manager_name', '=', $name)
+                        ->orwhere('approve.center_director_name', '=', $name)
+                        ->orwhere('approve.device_administrator_out_name', '=', $name)
+                        ->orwhere('approve.device_administrator_acceptance_name', '=', $name);
+                })
+                ->andwhere('form.form_status', '=', $lev)
                 ->get();
             $data['equipment_borrow_checklist'] = $data2;
             $data['other_information_eb'] = $data3;
