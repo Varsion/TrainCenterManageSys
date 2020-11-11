@@ -81,7 +81,7 @@ class Equipment extends Model
     {
         try{
             $res = self::where('equipment_id','=',$equipment_id)
-                ->select('model','equipment_name','number','annex')
+                ->select('equipment_id','model','equipment_name','number','annex')
                 ->first();
             return $res;
         }catch (\Exception $e) {
