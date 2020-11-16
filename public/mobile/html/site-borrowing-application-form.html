@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验室借用申请表</title>
+    <!-- <link rel="stylesheet" href="css/layui.css" media="all"> -->
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/base.css" media="all">
+    <link rel="stylesheet" href="../css/operation-record-inspection.css" media="all">
+    <link rel="stylesheet" href="../css/site-borrowing-application-form.css" media="all">
+</head>
+
+<body>
+    <!-- 你的HTML代码 -->
+    <!-- 头部 -->
+
+    <!-- 头部：标题+返回键 -->
+    <div class="app_header">
+        <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+        <a href="#" class="title">实验室借用申请</a>
+    </div>
+    <!-- 按钮：审批+历史 -->
+    <div class="app_middle">
+        <div class="app_btn">
+            <a href="experimental-training-center.html">填报</a>
+            <a href="list_forms.html" class="hty_btn">列表</a>
+        </div>
+    </div>
+    <div class="form">
+        <form action="" id="LaboratoryLoan">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>申请实验室名称</td>
+                        <td id="site-name">
+                        <select name="" id="laboratory_name" onchange="hwc_getLaboratory_name()">
+                            <option value="" disabled selected hidden>请选择...</option>
+                        </select>
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>实验室编号</td>
+                        <td id="site-num"><input type="text" id="laboratory_id" value="" readonly>
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>实验室课程名称</td>
+                        <td id="site-subject"><input type="text" id="course_name">
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>学生班级</td>
+                        <td id="site-class">
+                            <select name="" id="class_name">
+                                <option value="" disabled selected hidden></option>
+                            </select>
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>班级人数</td>
+                        <td id="site-class-number"><input type="text" id="number">
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>实验目的</td>
+                        <td id="site-purpose"><input type="text" id="purpose">
+                            <p></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>具体使用时间</td>
+                        <td class="range" id="site-range">
+                            <input type="date" placeholder="" id="start_time"> ~ <input type="date" placeholder="" id="end_time">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="spcial">第</td>
+                        <td class="class-range" id="time"><input type="number" id="start_class"> 节 至第 <input type="number" id="end_class"> 节课<p></p>
+                        </td>
+                    </tr>
+                    <tr class="btn1">
+                        <td colspan="2" class="btn">
+                            <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal" id="btn"
+                                type="button">提交</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <!-- 成功弹框 -->
+    <div class="layui-layer layui-layer-page success-alert" id="layui-layer2" type="page" times="2" showtime="0" id="successful"
+        contype="string">
+        <div id="layerDemoauto" class="layui-layer-content content">
+            <div>
+                <div><img src="../icon/icon/ok.png" alt=""></div>
+                <p class="success">表单提交成功</p>
+            </div>
+        </div>
+        <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine" onclick="sucJumpLaborBor()">确定</a></div><span
+            class="layui-layer-resize"></span>
+    </div>
+    <div class="mask">
+    </div>
+
+    <!-- 失败弹框 -->
+    <div class="layui-layer layui-layer-page failure-alert" id="layui-layer3" type="page" times="2" showtime="0" id="failure"
+         contype="string">
+        <div id="layerDemoauto" class="layui-layer-content content">
+            <div>
+                <div><img src="../icon/icon/no.png" alt=""></div>
+                <p class="failure">表单提交失败</p>
+            </div>
+        </div>
+        <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine" onclick="faiJumpLaborBor()">确定</a></div><span
+            class="layui-layer-resize"></span>
+    </div>
+    <div class="mask">
+    </div>
+
+    <!-- 承诺弹框 -->
+    <div class="layui-layer layui-layer-page site" id="layui-layer8" type="page" times="8" showtime="0"
+        contype="string">
+        <div class="layui-layer-title" style="cursor: move;">承诺</div>
+        <div id="layerDemoauto" class="layui-layer-content">
+            <div class="promise-content">
+                <p>1. 借用教师为借用期间实验室安全
+                    责任人，必须保证实验室的安全。
+                    切实履行实验室用电用水防盗防火
+                    安全。对实验人员进行安全教育，
+                    保证实验室人员人身安全。<br>
+                    2. 对实验人员进行必要仪器使用和
+                    实验技能指导、实验操作教育，保
+                    证实验操作规范及设备正常。<br>
+                    3. 督促实验人员按时完成实验项目。
+                    我已阅知实验室安全责任要求，保
+                    证切实履行实验室安全责任。
+                </p>
+            </div>
+        </div>
+        <div class="layui-layer-btn layui-layer-btn-c"><button class="layui-layer-btn0 cancel">取消</button><button
+                href="" class="layui-layer-btn0 nocancel" type="button" onclick="hwc_LaboratoryLoan()">确定</button></div><span
+            class="layui-layer-resize"></span>
+    </div>
+
+    <!-- js的引用 -->
+    <script src="../layui/layui.all.js"></script>
+    <script src="../js/jquery-1.12.3.js"></script>
+    <script src="../js/page_js/site-borrowing-application-form.js"></script>
+</body>
+<script src="../js/jquery-1.12.3.js"></script>
+<script src="../js/page_js/fill.js"></script>
+
+</html>

@@ -1,0 +1,218 @@
+html {
+  font-size: 50px;
+}
+@media screen and (min-width: 280px) {
+  html {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 37.5px;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 38.4px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 40px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 41.4px;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 54px;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 72px;
+  }
+}
+@media screen and (min-width: 780px) {
+  html {
+    font-size: 78px;
+  }
+}
+body {
+  overflow: hidden;
+  overflow-y: scroll !important;
+}
+body::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0);
+  border-left: 1px solid rgba(0, 0, 0, 0);
+}
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 13px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-height: 28px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:hover body {
+  width: 15rem;
+  min-width: 320px;
+  margin: 0 auto;
+  font-family: Microsoft YaHei Regular;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body {
+  min-width: 320px;
+  width: 15rem;
+  margin: 0 auto;
+}
+.app_header {
+  display: flex;
+  width: 15rem;
+  height: 2.29166667rem;
+  background: #ffffff;
+  box-shadow: 0px 0.08333333rem 0.08333333rem 0px rgba(0, 0, 0, 0.02);
+}
+.app_header .title {
+  vertical-align: middle;
+  margin-top: 0.70833333rem;
+  margin-left: 4rem;
+}
+.app_header .title,
+.app_header .back_btn .layui-icon-left {
+  font-size: 0.75rem;
+}
+.app_header .back_btn {
+  margin: 0.83333333rem 0 0.66666667rem 0.75rem;
+}
+.app_middle {
+  height: 2.125rem;
+  background-color: #F8F8F8;
+}
+.app_middle .app_btn {
+  padding-top: 1rem;
+  margin-left: 0.75rem;
+}
+.app_middle .app_btn a {
+  width: 2.125rem;
+  height: 0.91666667rem;
+  border-radius: 0.41666667rem;
+  font-size: 0.5rem;
+  padding: 0.20833333rem 0.58333333rem;
+}
+.app_middle .app_btn a:focus {
+  color: #fff;
+}
+.app_middle .app_btn a:nth-child(2) {
+  margin-left: 0.375rem;
+}
+.app_content {
+  border-radius: 30px 30px 0px 0px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.02);
+}
+.app_content .seacher_input,
+.app_content .seacher_select {
+  width: 11.58333333rem;
+  height: 1.08333333rem;
+  background: #ffffff;
+  border: 1px solid #c7c8c9;
+  border-radius: 5px;
+  margin-top: 0.54166667rem;
+  margin-left: 1.95833333rem;
+  color: #000000;
+  font-size: 0.41666667rem !important;
+  padding-left: 0.375rem;
+}
+.app_content .search_icon {
+  margin-left: -1.04166667rem;
+  font-size: 0.54166667rem;
+  vertical-align: middle;
+  color: #C7C8C9;
+}
+.app_content .seacher_select option {
+  text-align: left;
+  font-size: 0.03125rem;
+  display: block;
+  white-space: pre;
+  min-height: 0.05em;
+  padding: 0 !important;
+}
+.app_form {
+  height: 20.41666667rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-top: 0.16666667rem;
+}
+.app_form .layui-table th {
+  font-size: 0.5rem;
+  background-color: #F8F8F8;
+  padding: 0.5rem 0 !important;
+}
+.app_form .layui-table th,
+.app_form td {
+  text-align: center;
+}
+.app_form .layui-table td {
+  font-size: 0.45833333rem;
+  padding: 0.58333333rem 0 0.70833333rem 0;
+}
+.app_form .btn {
+  word-break: keep-all;
+}
+.app_form .app_lk_btn {
+  width: 2.29166667rem;
+  height: 0.91666667rem;
+  padding: 0.20833333rem 0.45833333rem;
+  background: #0088fe;
+  border-radius: 0.41666667rem;
+  color: #ffffff;
+}
+.app_form .app_status .ok_status {
+  color: #569FDC;
+}
+.app_form .app_status .no_status {
+  color: #F73232;
+}
+.change_btn_2 {
+  background: #ffffff;
+  color: #000000;
+}
+.change_btn_1 {
+  background: #0088fe;
+  color: #FFFFFF;
+}

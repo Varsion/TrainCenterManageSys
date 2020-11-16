@@ -1,0 +1,890 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.am-topbar,
+.admin-header {
+    margin: 0;
+    height: 60px;
+    background: #5A8CFF;
+    box-shadow: 1px 5px 10px 1px rgba(3, 3, 3, 0.11);
+}
+
+.am-topbar-brand {
+    width: 259px;
+    height: 59px;
+    background: #4878E7;
+    float: left;
+}
+
+.am-topbar-brand img {
+    padding: 1px 0 0 28px;
+}
+
+.am-topbar-right {
+    margin-top: 5px;
+}
+
+#am-dropdown-toggle {
+    color: white;
+}
+
+#am-dropdown-toggle:hover {
+    background: transparent;
+}
+
+.am-btn-success {
+    outline: none;
+    margin-top: 13px;
+}
+
+.admin-sidebar {
+    border: none;
+    height: 100%;
+}
+
+.admin-offcanvas-bar {
+    background-color: white;
+}
+
+.admin-main {
+    background-color: white;
+}
+
+.nav_list {
+    height: 60px;
+    background-color: white;
+}
+
+.icon-nav {
+    float: right;
+    font-size: 24px;
+    padding: 10px;
+    color: #4878E7;
+}
+
+.am-list>li {
+    position: relative;
+    display: block;
+    margin-bottom: 0px;
+    background-color: #fff;
+    border: none;
+    border-width: 0;
+}
+
+.admin-sidebar-sub li:first-child {
+    border: none;
+}
+
+.admin-sidebar-list li a {
+    color: #151E34;
+    padding-left: 55px;
+}
+
+.admin-sidebar-list li a:hover,
+#collapse-nav:hover {
+    background-color: #5A8BFF;
+    color: white;
+}
+
+.admin-sidebar-sub {
+    background: none;
+    box-shadow: none;
+}
+
+.am-icon-home,
+.am-icon-sign-out {
+    font-size: 20px;
+}
+
+.icon_text {
+    margin-left: 10px;
+}
+
+.admin-content {
+    background-color: #F0F3FC;
+    min-height: 917px;
+}
+
+.am-padding {
+    height: 60px;
+    background: #FBFCFE;
+    box-shadow: 1px 5px 2px 1px rgba(3, 3, 3, 0.01);
+}
+
+.am-text-primary {
+    color: #4878E7;
+}
+
+.am-breadcrumb {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 导入按钮 */
+
+.setbtn {
+    width: 110px;
+    height: 40px;
+    background: #5A8BFF;
+    border-radius: 15px;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.input_ser {
+    width: 355px;
+    height: 51px;
+    background: white;
+    border: none;
+    box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+}
+
+.input_ser input {
+    float: left;
+    width: 80%;
+    border: none;
+    height: 35px;
+    margin: 8px 0 8px 16px;
+    /* outline: none; */
+}
+
+.icon-sousuo1-copy {
+    margin-right: 12px;
+    font-size: 30px;
+    float: right;
+}
+
+
+/* 表单 */
+
+.am-scrollable-horizontal {
+    margin-top: 50px;
+    max-width: 1332px;
+    min-height: 545px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #EDF1F5;
+    box-shadow: 1px 8px 17px 2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    padding: 0;
+}
+
+table {
+    color: #434547;
+}
+
+th {
+    height: 47px;
+}
+
+tr {
+    height: 58px;
+    border: none;
+}
+
+thead {
+    background-color: #5A8CFF;
+    color: white;
+}
+
+td {
+    border-top: none;
+}
+
+.am-table>tbody>tr>td {
+    border-top: none;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-look {
+    width: 75px;
+    height: 35px;
+    background: #5A8BFF;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    margin-right: 20px;
+    outline: none;
+}
+
+.but-use {
+    width: 75px;
+    height: 35px;
+    background: #FB7979;
+    border-radius: 15px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    color: white;
+}
+
+.am-container {
+    margin: auto;
+}
+
+.am-wid {
+    max-width: 1383px;
+}
+
+#pagcentered {
+    max-width: 970px;
+    padding-left: 156px;
+    padding-right: 156px;
+    padding-top: 25px;
+}
+
+.am-pagination>.am-active>a {
+    background-color: #5A8BFF;
+}
+
+.am-modal-hd {
+    background-color: #5A8CFF;
+    color: white;
+    padding: 10px 10px 5px;
+    height: 50px;
+}
+
+.am-modal-bd {
+    max-width: 430px;
+    margin-top: 40px;
+    border: none;
+}
+
+.am-modal-dialog {
+    margin-top: -58px;
+    height: 421px;
+}
+
+.text1 {
+    width: 100%;
+    max-width: 298px;
+    height: 35px;
+    background: #E6E7E9;
+    border-radius: 18px;
+    border: none;
+    outline: none;
+}
+
+.textam {
+    margin-top: 15px;
+}
+
+.am-modal-footer {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    width: 48%;
+}
+
+.am-modal-btn {
+    width: 40%;
+    height: 42px;
+    background: #5A8CFF;
+    border-radius: 14px;
+    border: none;
+    color: white;
+}
+
+.am-modal-btn:first-child {
+    border-radius: 14px;
+    float: left;
+}
+
+.am-modal-btn:last-child {
+    border-radius: 14px;
+    float: right;
+}
+
+
+/* 修改 删除按钮 */
+
+.am-mover {
+    margin-top: -58px;
+    height: 420px;
+}
+
+.am-bd-1 {
+    max-width: 430px;
+    margin-top: 54px;
+    border: none;
+}
+
+.amm-left p {
+    float: left;
+}
+
+.amm-right p {
+    float: right;
+}
+
+.am-modal-btn1 {
+    width: 40%;
+    height: 42px;
+    background: #5A8CFF;
+    border-radius: 14px;
+    border: none;
+    color: white;
+    margin-right: 69px;
+}
+
+.am-modal-btn:first-child:last-child {
+    border-radius: 15px;
+}
+
+
+/* 回显框 */
+
+.inputmovedd {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+#movedalert1 {
+    height: 420px;
+}
+
+
+/* 开关 */
+
+.layui-form-switch {
+    position: relative;
+    height: 23px;
+    line-height: 28px;
+    min-width: 42px;
+    padding: 0 8px 0px 0;
+    margin-top: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+/* 分页 */
+
+#layui-laypage-1 {
+    margin: 50px auto;
+    text-align: center;
+    min-width: 500px;
+    width: 970px;
+}
+
+.layui-laypage a {
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    padding: 1px;
+    width: 100%;
+    height: 100%;
+    background-color: #5A8BFF;
+}
+
+.layui-laypage a,
+.layui-laypage span {
+    display: inline-block;
+    /* *display: inline;
+    *zoom: 1; */
+    vertical-align: middle;
+    padding: 0 9px;
+    height: 28px;
+    line-height: 30px;
+    margin: 0 20px 5px 0;
+    /* background-color: #fff; */
+    color: #333;
+    font-size: 17px;
+    border: none;
+    background-color: transparent;
+}
+
+.layui-laypage a:hover {
+    color: #5A8BFF;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    padding: 1px;
+    background-color: #5A8BFF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+
+/* i*/
+
+.icon-sousuo {
+    font-size: 26px;
+}
+
+.icon-linedesign-12,
+.icon-guanlipeizhi,
+.icon-guanlizujian,
+.icon-guanligongju,
+.icon-changdi {
+    font-size: 20px;
+}
+
+.icon-guanlizujian {
+    padding-right: 5px;
+}
+
+
+/* iphone 5 */
+
+@media screen and (min-width: 320px) {
+    .am-margin {
+        margin: 24px 0 0 0;
+        padding-left: 9px;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0;
+    }
+    .btn-look {
+        width: 65px;
+        height: 30px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-size: 15px;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding: 25px 0 0 0;
+    }
+    .input_ser {
+        width: 142px;
+        height: 40px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 66%;
+        border: none;
+        height: 25px;
+        margin: 8px 0 8px 16px;
+        /* outline: none;*/
+    }
+    .icon-sousuo1-copy {
+        margin-top: 7px;
+        font-size: 18px;
+        float: right;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .am-margin {
+        margin: 24px 0 0 0;
+        padding-left: 9px;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0;
+    }
+    .btn-look {
+        width: 65px;
+        height: 30px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-size: 15px;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding: 25px 0 0 0;
+    }
+    .input_ser {
+        width: 142px;
+        height: 40px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 66%;
+        border: none;
+        height: 25px;
+        margin: 8px 0 8px 16px;
+        /* outline: none;*/
+    }
+    .icon-sousuo1-copy {
+        margin-top: 7px;
+        font-size: 18px;
+        float: right;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+
+/* iphoneX */
+
+@media screen and (min-width: 375px) {
+    .am-margin {
+        margin: 24px 0 0 0;
+        padding-left: 9px;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0;
+    }
+    .btn-look {
+        width: 65px;
+        height: 30px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-size: 15px;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .input_ser {
+        width: 166px;
+        height: 40px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 70%;
+        border: none;
+        height: 25px;
+        margin: 8px 0 8px 16px;
+        /* outline: none;*/
+    }
+    .icon-sousuo1-copy {
+        margin-top: 7px;
+        font-size: 18px;
+        float: right;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+
+/* iphone6 7 8 plus */
+
+@media screen and (min-width: 414px) {
+    .am-margin {
+        margin: 30px 0 0 0;
+        padding-left: 9px;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0;
+    }
+    .btn-look {
+        width: 65px;
+        height: 30px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-size: 15px;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding: 25px 0 0 0;
+    }
+    .am-scrollable-horizontal {
+        margin-top: 30px;
+    }
+    .input_ser {
+        width: 189px;
+        height: 40px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 75%;
+        border: none;
+        height: 25px;
+        margin: 8px 0 8px 16px;
+        /* outline: none; */
+    }
+    .icon-sousuo1-copy {
+        margin-top: 7px;
+        font-size: 18px;
+        float: right;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+@media only screen and (min-width :481px) {
+    .am-margin {
+        margin: 30px 0 0 0;
+        padding-left: 9px;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0;
+    }
+    .btn-look {
+        width: 65px;
+        height: 30px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-size: 15px;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 0px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding: 25px 0 0 0;
+    }
+    .am-scrollable-horizontal {
+        margin-top: 30px;
+    }
+    .input_ser {
+        width: 229px;
+        height: 51px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 75%;
+        border: none;
+        height: 35px;
+        margin: 8px 0 8px 16px;
+        /* outline: none; */
+    }
+    .icon-sousuo1-copy {
+        margin-top: 5px;
+        font-size: 28px;
+        float: right;
+    }
+    .textp {
+        margin: 2px 0;
+        float: right;
+        font-size: 16px;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+
+/* ipad */
+
+@media screen and (min-width: 768px) {
+    .down-left {
+        float: right;
+        padding: 0;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    .btn-look {
+        margin: 0 20px 0 0;
+    }
+    .but-use {
+        width: 65px;
+        height: 30px;
+        background: #FB7979;
+        border-radius: 15px;
+        border: none;
+        font-size: 15px;
+        margin-top: 0px;
+    }
+    .thcom {
+        display: none;
+    }
+}
+
+
+/* ipad pro */
+
+@media screen and (min-width: 1024px) {
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding-left: 156px;
+        padding-right: 156px;
+        padding-top: 25px;
+    }
+    .thcom {
+        display: block;
+    }
+    #movedalert1 {
+        height: 420px;
+    }
+}
+
+
+/* pc */
+
+@media screen and (min-width: 1025px) {
+    .down-left {
+        float: right;
+        padding: 0;
+    }
+    .am-margin {
+        margin: 30px 0 0 0;
+    }
+    .am-scrollable-horizonta {
+        margin-top: 20px;
+    }
+    #pagcentered {
+        max-width: 970px;
+        padding-left: 156px;
+        padding-right: 156px;
+        padding-top: 25px;
+    }
+    .setbtn {
+        width: 110px;
+        height: 40px;
+        background: #5A8BFF;
+        border-radius: 15px;
+        color: white;
+        outline: none;
+        border: none;
+    }
+    .input_ser {
+        width: 355px;
+        height: 40px;
+        background: white;
+        border: none;
+        box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.03);
+        border-radius: 20px;
+    }
+    .input_ser input {
+        float: left;
+        width: 80%;
+        border: none;
+        height: 25px;
+        margin: 8px 0 8px 16px;
+        /* outline: none; */
+    }
+    .icon-sousuo1-copy {
+        margin-right: 12px;
+        font-size: 26px;
+        float: right;
+        margin-top: 0;
+    }
+    .thcom {
+        display: block;
+    }
+    #movedalert1 {
+        height: 420px;
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.current {
+    background: #337ab7 !important;
+    color: #fff !important;
+}

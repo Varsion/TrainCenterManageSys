@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 780px) {
+    html {
+        font-size: 3.9rem;
+    }
+}
+
+body {
+    width: 15rem;
+    margin: 0 auto;
+    width: 100%;
+    font-family: Microsoft YaHei Regular;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.range,
+.class-range {
+    width: 8rem;
+}
+
+.range {
+    text-align: center;
+}
+
+.class-range input {
+    width: 24.2%;
+}
+
+.spcial {
+    padding-left: 3rem !important;
+}
+
+td {
+    padding: 0.5rem 0 !important;
+}
+
+.success-alert,.failure-alert {
+    top: 8rem !important;
+}
+
+/* 承诺弹框 */
+.promise-content {
+    padding: 1.5rem;
+}
+
+.promise-content p {
+    font-size: 0.4rem !important;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    color: #000000 !important;
+    line-height: 0.8rem;
+    letter-spacing: 0.4px;
+}
+
+.site {
+    display: none;
+    position: absolute;
+    top: 7.5em !important;
+    left: 1.9rem !important;
+    width: 11.1rem;
+    border-radius: 11px !important;
+    overflow: hidden;
+}
+
+.layui-layer-title {
+    font-size: 0.6rem !important;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    color: #000000 !important;
+}
+
+.cancel,
+.nocancel {
+    width: 2.3rem;
+    height: 1.1rem;
+    font-size: 0.3rem;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    line-height: 1rem !important;
+}
+
+.nocancel {
+    border: none;
+}
+
+.cancel {
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: 1px solid #b5b6b6 !important;
+}
+
+.layui-layer-btn-c {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form p {
+    color: #c80707bd;
+    font-size: 0.1rem;
+    text-align: center;
+    margin: 0.16rem 0 -0.35rem;
+}
+.range input {
+    font-size: 0.5rem;
+}

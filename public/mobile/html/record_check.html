@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/record_check.css">
+</head>
+
+<body>
+<div class="app_header">
+    <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">期末教学记录检查</a>
+</div>
+<!-- 按钮：填报+历史 -->
+<div class="app_middle">
+    <div class="app_btn">
+        <a href="experimental-training-center.html">填报</a>
+        <a href="list_forms.html" class="hty_btn">列表</a>
+    </div>
+</div>
+<!--表格部分-->
+<section>
+    <form class="form">
+        <div class="box-r" id="table_wrap">
+            <table border="1" cellpadding="0" cellspacing="0" class="table">
+                <thead class="table_head">
+                <th>实验室编号</th>
+                <th> &nbsp;&nbsp;...&nbsp; &nbsp;</th>
+                <th>教学情况</th>
+                <th>运行情况</th>
+                <th>&nbsp;&nbsp;操作&nbsp;&nbsp;</th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <span class="img_fa"><img src="../images/plus.icon.png"></span>
+        <span class="button_fa"><button type="button" onclick="cwp_teachadd()">提交</button></span>
+
+
+        <!--        提示成功显示框-->
+        <div class="success_eject layui-col-xs9">
+            <span class="eject_img"><img src="../images/success.png"></span>
+            <p>审批提交成功</p>
+            <button type="button" onclick="sucJumpLaborBor()">确&nbsp;认</button>
+        </div>
+
+        <!--        提示失败示框-->
+        <div class="no_eject layui-col-xs9">
+            <span class="eject_img"><img src="../images/no.png"></span>
+            <p>审批提交失败</p>
+            <button type="button">确&nbsp;认</button>
+        </div>
+
+        <!--        表单修改弹出框-->
+        <div class="from_eject layui-col-xs9 form-alert">
+            <span class="clearfix"><img src="../images/cha.png"></span>
+            <form>
+                <table>
+                    <tr>
+                        <td class="td_nav1" >实验室</td>
+                        <td class="td_nav2">
+                            <select class="re-one"  id="lab_name" onchange="cwp_getLab_name()">
+                                <option value="" class="laboratory_name" disabled selected hidden></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">实验室编号</td>
+                        <td class="td_nav2">
+                            <input class="re_tow" type="text" readonly id="lab_id">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">课程</td>
+                        <td class="td_nav2">
+                            <input type="text" class="re-three">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">教师</td>
+                        <td class="td_nav2">
+                            <input type="text" class="re-four">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">教学情况</td>
+                        <td class="td_nav2">
+                            <select class="re-five">
+                                <option val="0" disabled selected hidden></option>
+                                <option val="1">优</option>
+                                <option val="2">良</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">运营情况</td>
+                        <td class="td_nav2">
+                            <select class="re-six">
+                                <option val="0" disabled selected hidden></option>
+                                <option val="1">优</option>
+                                <option val="2">良</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">备注</td>
+                        <td class="td_nav2">
+                            <input type="text" class="re-seven">
+                        </td>
+                    </tr>
+                </table>
+                <div class="bu">
+                    <div class="bu_one">
+                        <button type="button">删&nbsp;除</button>
+                    </div>
+                    <div class="bu_two">
+                        <button type="button">确&nbsp;定</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--        增加 弹出框-->
+        <div class="add_eject layui-col-xs9">
+            <span class="clearfix"><img src="../images/cha.png"></span>
+            <form>
+                <table>
+                    <tr>
+                        <td class="td_nav1">实验室</td>
+                        <td class="td_nav2" id="site-name">
+                            <select name="" class="sec1" id="laboratory_name" onchange="cwp_getLaboratory_name()">
+                                <option value="" class="laboratory_name" disabled selected hidden></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">实验室编号</td>
+                        <td class="td_nav2" id="site-num">
+                            <input type="text" class="sec2" id="laboratory_id" value="" readonly>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">课程</td>
+                        <td class="td_nav2">
+                            <input type="text" class="kecheng" id="class_name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">教师</td>
+                        <td class="td_nav2">
+                            <input type="text" class="jiaoshi" id="teacher">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">教学情况</td>
+                        <td class="td_nav2">
+                            <select class="sec3" id="teach_operating_condition">
+                                <option val="0">优</option>
+                                <option val="1">良</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">运营情况</td>
+                        <td class="td_nav2">
+                            <select class="sec4" id="operating_condition">
+                                <option>优</option>
+                                <option>良</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_nav1">备注</td>
+                        <td class="td_nav2">
+                            <input type="text" class="beizhu" id="remark">
+                        </td>
+                    </tr>
+                </table>
+                <span class="add_bu"><button type="button" onclick="">确认新增</button></span>
+            </form>
+        </div>
+    </form>
+
+
+</section>
+<div class="mask"></div>
+</body>
+<script src="../js/jquery-1.12.3.js"></script>
+<script src="../js/page_js/record_check.js"></script>
+<script src="../js/page_js/fill.js"></script>
+
+<html>

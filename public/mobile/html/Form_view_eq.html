@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>仪器表单编号</title>
+
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/Form_view_eq.css" media="all">
+</head>
+
+<body>
+
+  <!-- 你的HTML代码 -->
+  <!-- 头部 -->
+
+   <!-- 头部：标题+返回键 -->
+   <div class="app_header">
+    <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">仪器表单编号</a>
+</div>
+<!-- 按钮：审批+历史 -->
+<div class="app_middle">
+    <div class="app_btn">
+        <a href="experimental-training-center.html" class="fill_btn">填报</a>
+        <a href="list_forms.html" class="hty_btn">列表</a>
+    </div>
+</div>
+<!-- 审批 -->
+<div class="Approve_graph  layui-col-xs12">
+    <div class="picture_box"> 
+         <div class="complete"></div>
+         <div class="lablinear "></div>
+         <div class="labcircle  "></div>    
+         <div class=" lablinear"></div>
+         <div class="labcircle  "></div>
+         <div class=" lablinear "></div>
+         <div class="labcircle "></div>
+         <div class="lablinear"></div>
+         <div class="labcircle"></div>
+    </div>
+    <div class="people_box">
+          <!-- <span>提交成功</span>
+          <span>借用部门</span> -->
+
+          <!-- <span>实验室借用管理员实验室借用管理员</span> -->
+          <p>提交成功</p>
+          <p>借用部门负责人</p>
+          <p>实验室借用管理员</p>
+       <p>实验中心主任</p>
+       <p>设备出库</p>
+    </div>
+
+</div>
+<!-- 归还状态 -->
+<div class="return_status">
+    <span>等待归还</span>
+    <span><img src="../icon/icon/guihuan.png" alt=""></span>
+</div>
+<!-- 主体部分 -->
+<div class="contant ">
+
+<p class="formheader" >实验室仪器借用</p>
+<!-- <input type="text" name="" id="formdate" value="2020 年 10 月 11日 " disabled> -->
+<form action="">
+    <table  border="1">
+        <tbody  id="forminformation" >
+          
+        </tbody>
+        
+      
+        <tbody id="formtableinfo">
+
+        </tbody>
+       
+    </table>
+</form>
+<div class="formtjdate">
+    <p>表单提交日期    2020/10/10</p>
+</div>
+</div>
+
+  <!-- js的引用 -->
+  <script src="../layui/layui.all.js"></script>
+  <script src="../layui/lay/modules/jquery.js"></script>
+  <script src="../js/page_js/test.js"></script>
+  <script src="../js/page_js/listfill.js"></script>
+  <script src="../js/jquery-1.12.3.js"></script>
+  <script src="../js/page_js/Form_view_eq.js"></script>
+</body>
+<script>
+    back=function(){
+        // console.log('1233')
+        window.location.href = '../html/list_forms.html';
+    }
+</script>
+</html>

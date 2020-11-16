@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 780px) {
+    html {
+        font-size: 3.9rem;
+    }
+}
+
+body {
+    width: 15rem;
+    margin: 0 auto;
+    width: 100%;
+    font-family: Microsoft YaHei Regular;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form {
+    position: relative;
+    padding: 1rem;
+}
+
+td:nth-child(2) {
+    padding-left: 0.4rem;
+    width: 59%;
+}
+
+td {
+    font-size: 0.6rem;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    text-align: left;
+    color: #000000;
+    padding: 0.4rem 0;
+}
+
+table {
+    width: 100%;
+}
+
+input,
+select {
+    width: 100%;
+    /* width: 168px; */
+    height: 1.25rem;
+    border: 1px solid #e8e4e4;
+    border-radius: 10px;
+    padding: 0 5%;
+    background: #fff;
+}
+
+select {
+    width: 100% !important;
+}
+
+.btn {
+    text-align: center !important;
+    padding-top: 1.5rem !important;
+}
+
+.btn button {
+    width: 4rem;
+    height: 1.4rem;
+    background: #0088fe !important;
+    border-radius: 9px;
+    color: #fff;
+    font-size: 0.6rem;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.2rem;
+    line-height: 1.4rem;
+}
+
+
+/* 弹框 */
+.success-alert,.failure-alert,.no-alert{
+    display: none;
+    position: absolute !important;
+    z-index: 19891016;
+    top: 10rem !important;
+    left: 2.35rem !important;
+    text-align: center;
+    border-radius: 6px !important;
+
+}
+
+.layui-layer-title {
+    cursor: move;
+}
+
+.content>div {
+    padding: 1rem 3.3rem 0.2rem;
+}
+
+.success {
+    font-size: 0.6rem;
+    font-family: Microsoft YaHei Regular, Microsoft YaHei Regular-Regular;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: #000000;
+}
+
+.layui-layer-btn0 {
+    margin: 0 auto 0.2rem !important;
+    background-color: #0088FE !important;
+}
+
+/* 蒙版 */
+.mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .25);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form p {
+    color: #c80707bd;
+    font-size: 0.1rem;
+    text-align: center;
+    margin: 0.16rem 0 -0.35rem;
+}

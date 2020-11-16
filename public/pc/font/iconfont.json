@@ -1,0 +1,58 @@
+{
+  "id": "2161910",
+  "name": "实验室实训中心管理",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "993786",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "1203548",
+      "name": "搜索",
+      "font_class": "linedesign-12",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "17886752",
+      "name": "搜索",
+      "font_class": "sousuo1-copy",
+      "unicode": "ec2b",
+      "unicode_decimal": 60459
+    },
+    {
+      "icon_id": "879972",
+      "name": "管理配置",
+      "font_class": "guanlipeizhi",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "7629149",
+      "name": "管理组件",
+      "font_class": "guanlizujian",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "11121369",
+      "name": "管理工具",
+      "font_class": "guanligongju",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "15726755",
+      "name": "场地",
+      "font_class": "changdi",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}

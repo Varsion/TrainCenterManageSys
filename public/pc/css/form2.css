@@ -1,0 +1,46 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    }
+    body{
+        height: 100%;
+    }
+    table{
+        width: 1000px;
+        height: 1300px;  
+        margin: 0 auto;
+        text-align: center;
+        border-collapse:collapse;
+        
+font-size: 20px;
+font-family: SimSun;
+font-weight: bold;
+    }
+    span{
+        margin-left: 20px;
+    }
+    tr{
+        width: 25%;
+    }
+    td{
+    
+        width: 200px;
+        height: 50px;
+        
+    }
+    #forminfo>tr{
+        width: 25%;
+        height: 30px;
+    }
+    #forminfo>td{
+        width: 25%;
+        height: 30px;
+    
+    }
+    input[type="date"]{
+        width: 170px;
+        margin-top: 20px;
+    }
+    th{
+        height: 100px;
+    }

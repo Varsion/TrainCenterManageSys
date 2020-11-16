@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>实验室运行记录检查</title>
+
+  <!-- <link rel="stylesheet" href="css/layui.css" media="all"> -->
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../css/base.css" media="all">
+  <link rel="stylesheet" href="../css/operation-record-inspection.css" media="all">
+</head>
+
+<body>
+
+  <!-- 你的HTML代码 -->
+  <!-- 头部 -->
+
+  <!-- 头部：标题+返回键 -->
+  <div class="app_header">
+    <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">实验室运行记录检查</a>
+  </div>
+  <!-- 按钮：审批+历史 -->
+  <div class="app_middle">
+    <div class="app_btn">
+      <a href="list_forms.html">填报</a>
+      <a href="experimental-training-center.html" class="hty_btn">列表</a>
+    </div>
+  </div>
+  <div class="form">
+    <form id="la_from">
+      <table>
+        <tbody>
+        <tr>
+          <td>实验室名称</td>
+          <td >
+              <select id="la_name" name="laboratory_name">
+                <option value="" disabled selected hidden>请输入~</option>
+              </select></td>
+        </tr>
+          <tr>
+            <td>周次</td>
+            <td id="op-week"><input id="op" type="text" name="week"><p></p></td>
+          </tr>
+          <tr>
+            <td>专业班级</td>
+            <td id="op-class">
+              <select name="class_name" id="c_name">
+                <option value="" disabled selected hidden>请输入~</option>
+              </select>
+              <p></p>
+            </td>
+          </tr>
+          <tr>
+            <td>学生姓名</td>
+            <td><input type="text" placeholder="后台获取" id="stu_name" name="applicant_name"></td>
+          </tr>
+          <tr>
+            <td>人数</td>
+            <td id="op-num"><input id="num" type="number" name="number"><p></p></td>
+          </tr>
+          <tr>
+            <td>课程名称/实验项目</td>
+            <td id="op-project"><input type="text" name="clas_name" id="cl_name"><p></p></td>
+          </tr>
+          <tr>
+            <td>课程类型</td>
+            <td><select name="class_type" id="cl_type">
+                <option value="0">必修</option>
+                <option value="1">选修</option>
+                <option value="2">开放</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td>任课教师</td>
+            <td id="op-teacher"><input type="text" id="te" name="teacher"><p></p></td>
+          </tr>
+          <tr>
+            <td>设备运行情况</td>
+            <td id="op-equipment"><input id="sit" type="text" name="situation"><p></p></td>
+          </tr>
+          <tr>
+            <td>备注</td>
+            <td><input type="text" name="remark" id="rem"></td>
+          </tr>
+          <tr class="btn1">
+            <td colspan="2" class="btn">
+              <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal" id="btn" type="button">提交</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  
+  <!-- 成功弹框 -->
+  <div class="layui-layer layui-layer-page success-alert" id="layui-layer2" type="page" times="2" showtime="0"
+    contype="string">
+    <div id="layerDemoauto" class="layui-layer-content content">
+      <div>
+        <div><img src="../icon/icon/ok.png" alt=""></div>
+        <p class="success">审批提交成功</p>
+      </div>
+    </div>
+    <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine" onclick="sucJumpLaborBor()">确定</a></div><span
+      class="layui-layer-resize"></span>
+  </div>
+  <div class="mask">
+  </div>
+
+
+<!--  失败弹框-->
+  <div class="layui-layer  no-alert" type="page" times="2" showtime="0"
+       contype="string">
+    <div class="layui-layer-content content">
+      <div>
+        <div><img src="../icon/icon/no.png" alt=""></div>
+        <p class="success">审批提交失败</p>
+      </div>
+    </div>
+    <div class="layui-layer-btn layui-layer-btn-c"><a class="layui-layer-btn0 determine">确定</a></div><span
+          class="layui-layer-resize"></span>
+  </div>
+
+</body>
+<!-- js的引用 -->
+<script src="../layui/layui.all.js"></script>
+<script src="../js/jquery-1.12.3.js"></script>
+<script src="../js/page_js/operation-record-inspection.js"></script>
+<script src="../js/jquery-1.12.3.js"></script>
+<script src="../js/page_js/fill.js"></script>
+</html>

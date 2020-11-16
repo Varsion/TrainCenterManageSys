@@ -1,0 +1,362 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 15rem;
+    margin: 0 auto;
+    font-family: Microsoft YaHei Regular;
+    background-color: #FFFFFF;
+    overflow-x:hidden;
+    position: relative;
+    left: 50%;
+}
+
+.section {
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+}
+
+.table {
+    width: 85%;
+    margin: 1.5rem auto 0;
+}
+
+.table .nav1 {
+    width: 40%;
+    font-size: 0.6rem;
+    color: #000000;
+}
+
+.table .nav2 {
+    width: 60%;
+}
+
+.nav2 textarea {
+    width: 100%;
+    border-radius: 0.4rem;
+    height: 3.4rem;
+    border: 1px solid #e8e4e4;
+    margin: 0.8rem 0;
+}
+
+.form {
+    position: relative;
+}
+
+.margin {
+    margin-bottom: 1.5rem;
+}
+
+.nav2 .input {
+    width: 100%;
+    border-radius: 0.3rem;
+    height: 1.1rem;
+    border: 1px solid #e8e4e4;
+    margin: 1.6rem 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex span {
+    height: 1.1rem;
+    margin: 0.8rem 5px 0.8rem;
+    line-height: 1.1rem;
+}
+
+.fl input {
+    width: 100%;
+    height: 1.1rem;
+    border: 1px solid #e8e4e4;
+    border-radius: 0.4rem;
+    background: #fff;
+}
+
+.nav2 img {
+    margin: 0.8rem 0 0.8rem;
+}
+
+.box_t {
+    border-radius: 10px;
+    width: 85%;
+    margin: 0 auto;
+    border: 1px solid #0C0C0C;
+    overflow: hidden;
+}
+
+.table2 {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid #0C0C0C
+}
+
+.table2 td {
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.5rem;
+}
+
+.button_f {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.fl {
+    text-align: center;
+}
+
+.button_f button {
+    width: 3rem;
+    height: 1rem;
+    background: #0088fe;
+    border-radius: 9px;
+    color: #FFFFFF;
+    font-size: 0.6rem;
+    outline: none;
+    border: 1px solid #0088fe;
+    text-align: justify;
+    text-align-last: justify;
+    padding: 0 0.6rem;
+}
+
+/*提示成功弹出框*/
+
+.success_eject2 {
+    z-index: 99999;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+.eject_img {
+    margin: 0.6rem 0;
+    display: block;
+}
+
+.eject_img img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.success_eject2 p {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.success_eject2 button {
+    width: 2rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #0088FE;
+    color: #FFFFFF;
+    font-size: 0.6rem;
+    outline: none;
+    border: 1px solid #0088FE;
+    margin: 0.4rem 0;
+}
+/*失败*/
+.success_eject3 {
+    z-index: 99999;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+.eject_img {
+    margin: 0.6rem 0;
+    display: block;
+}
+
+.eject_img img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.success_eject3 p {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.success_eject3 button {
+    width: 2rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #0088FE;
+    color: #FFFFFF;
+    font-size: 0.6rem;
+    outline: none;
+    border: 1px solid #0088FE;
+    margin: 0.4rem 0;
+}
+/*疫情承诺提醒*/
+.promise_eject {
+    z-index: 99999;
+    display: none;
+    position: absolute;
+    top: 3rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 0.3rem;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+.promise_eject .h3 {
+    text-align: left;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    width: 100%;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    background: #F8F8F8;
+}
+
+.promise_eject h3 {
+    display: block;
+    margin-left: 0.3rem;
+}
+
+.promise_eject .p {
+    text-align: left;
+    width: 80%;
+    margin: 0.5rem auto;
+}
+
+.bu1 {
+    display: flex;
+}
+
+.bu_one {
+    width: 50%;
+    margin: 0.8rem 0;
+}
+
+.bu_one button {
+    width: 2rem;
+    height: 1rem;
+    font-size: 0.5rem;
+    outline: none;
+    line-height: 1rem;
+    border: 1px solid #b5b6b6;
+    text-align: center;
+}
+
+.bu_two {
+    width: 50%;
+    margin: 0.8rem 0;
+}
+
+.bu_two button{
+    width: 2rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #0088FE;
+    font-size: 0.5rem;
+    color: #FFFFFF;
+    outline: none;
+    border: 1px solid #0088FE;
+    text-align: center;
+}
+
+/*表单弹出框*/
+.add_eject2 {
+    z-index: 998;
+    display: none;
+    position: absolute;
+    top: 2rem;
+    margin: 0 auto;
+    left: 13%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.03);
+}
+
+.add_eject2 span{
+    text-align: right;
+    display: block;
+    margin-top: 2px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
+
+.td_nav1 {
+    width: 35%;
+    color: #000000;
+    font-size: 0.6rem;
+    padding-left: 0.4rem;
+    text-align: left;
+}
+
+.add_eject2 table{
+    width: 100%;
+}
+
+.td_nav2 {
+    width: 65%;
+    text-align: left;
+}
+
+.add_eject2 tr{
+    height: 1.7rem;
+}
+
+
+.add_eject2 input{
+    height: 1rem;
+    line-height: 1rem;
+    border: 1px solid #838181;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.add_bu {
+    width: 100%;
+    margin: 0.8rem auto!important;
+    text-align: center!important;
+}
+
+.add_bu button {
+    width: 2.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #0088FE;
+    font-size: 0.6rem;
+    color: #FFFFFF;
+    outline: none;
+    border: 1px solid #0088FE;
+    text-align: center;
+}
+
+
+.mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.25);
+}

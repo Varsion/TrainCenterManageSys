@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>实验室运行记录</title>
+
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<!--    <link rel="stylesheet" href="css/layui.css" media="all">-->
+    <link rel="stylesheet" href="../css/Lab_operation_records.css" media="all">
+</head>
+
+<body>
+
+    <!-- 你的HTML代码 -->
+    <!-- 头部 -->
+
+    <!-- 头部：标题+返回键 -->
+    <div class="app_header">
+        <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
+        <a href="#" class="title">实验室运行记录编号</a>
+    </div>
+    <!-- 按钮：审批+历史 -->
+    <div class="app_middle">
+        <div class="app_btn">
+            <a href="experimental-training-center.html" class="fill_btn">填报</a>
+            <a href="list_forms.html" class="hty_btn">列表</a>
+        </div>
+    </div>
+    <!-- 主体部分 -->
+    <div class="contant ">
+
+        <p class="formheader">实验室运行记录表</p>
+
+        <!-- <input type="text" name="" id="formdate" value="2020 年 10 月 11日 " disabled> -->
+        <div class="detailed_page">
+            <form action="" id="lab_form">
+            </form>
+        </div>
+        <div class="formtjdate">
+            <p>表单提交日期 2020/10/10</p>
+        </div>
+    </div>
+
+
+
+    <!-- js的引用 -->
+    <script src="../js/jquery-1.12.3(1).js"></script>
+    <script src="../layui/layui.all.js"></script>
+    <script src="../layui/lay/modules/jquery.js"></script>
+    <script src="../js/page_js/listfill.js"></script>
+    <script src="../js/page_js/Lab_operation_records.js"></script>
+
+    <script>
+        back=function(){
+            window.location.href = '../html/list_forms.html';
+        }
+    </script>
+</body>
+
+</html>
