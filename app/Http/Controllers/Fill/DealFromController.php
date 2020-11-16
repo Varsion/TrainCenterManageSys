@@ -61,7 +61,7 @@ class DealFromController extends Controller
         $info['destine_end_time'] = $request['destine_end_time'];
         $res2 = Form::tsy_create($info);
         $res3 = EquipmentBorrow::tsy_create($info);
-        tsy_save($form_id);
+        Approve::tsy_save($form_id);
         for ($i =0;$i<count($equipment_array);$i++){
             $data = Equipment::tsy_SelectIdByName($equipment_array[$i]['equipment_name']);
             $info1['equipment_id'] =$data['equipment_id'];
