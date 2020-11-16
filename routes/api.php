@@ -235,3 +235,5 @@ Route::prefix('approval')->namespace('Approval')->group(function () {//审批展
     Route::get('reshow','ApprovalController@reShow');//分类回显
 });
 
+
+Route::get('dingcode','TestController@dingcode');
