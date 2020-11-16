@@ -118,33 +118,44 @@ function openLabAppSub(){
         data.push(num)
     }
     var infor = data;
-    $.ajax({
-        async: false,
-        type: "POST",
-        url:SERVER_PATH+'/api/fill/openlabusebor',
-        data: {code : code, reason_use : reason_use, porject_name : porject_name, start_time : start_time, end_time : end_time, infor:infor},
-        contentType : "application/x-www-form-urlencoded; charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            console.log($('#infor').serialize())
-            console.log(data.data)
-            if(data.code == 200){
-                    $('.promise_eject').hide();
-                    $('.success_eject2').show();
-            } else {
-                console.log($('#infor').serialize())
-                $('.promise_eject').hide();
-                $('.success_eject3').show();
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url:SERVER_PATH+'/api/fill/openlabusebor',
+                        data: {code : result.code, reason_use : reason_use, porject_name : porject_name, start_time : start_time, end_time : end_time, infor:infor},
+                        contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log($('#infor').serialize())
+                            console.log(data.data)
+                            if(data.code == 200){
+                                    $('.promise_eject').hide();
+                                    $('.success_eject2').show();
+                            } else {
+                                console.log($('#infor').serialize())
+                                $('.promise_eject').hide();
+                                $('.success_eject3').show();
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            $(".failure-alert").show();
+                            $('.mask').show();
+                            console.log(XMLHttpRequest.status);
+                            console.log(XMLHttpRequest.readyState);
+                            console.log(textStatus);
+                        }
+                    });
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
             }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".failure-alert").show();
-            $('.mask').show();
-            console.log(XMLHttpRequest.status);
-            console.log(XMLHttpRequest.readyState);
-            console.log(textStatus);
-        }
+        });
     });
+
 }
 
 /**

@@ -71,7 +71,7 @@ $(function () {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            console.log(data.code)
+            
             let str = ``;
             for (var i = 0; i < data.data.length; i++) {
                 $(data.data[i]).each(function () {
@@ -100,24 +100,37 @@ $(function () {
      * 请求接口 api/report/nameview
      * @author lizhongzheng <github.com/bixuande>
      */
-    $.ajax({
-        url: SERVER_PATH+"api/report/nameview",
-        type: 'get',
-        data:{code:$code},
-        dataType: 'json',
-        success: function (data) {
-            console.log(data)
-            $("#stu_name").val(data.data)
-            if (data.code === 200) {
-                console.log(data.msg);
-            } else if (data.code === 100) {
-                console.log(data.msg);
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+            $.ajax({
+                url: SERVER_PATH+"api/report/nameview",
+                type: 'get',
+                data:{
+                    code:result.code
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    $("#stu_name").val(data.data)
+                    if (data.code === 200) {
+                        console.log(data.msg);
+                    } else if (data.code === 100) {
+                        console.log(data.msg);
+                    }
+                },
+                error: function (data) {
+                    console.log(data.msg);
+                }
+            })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
             }
-        },
-        error: function (data) {
-            console.log(data.msg);
-        }
-    })
+        });
+    });
+
 
     /**
      * 方法作用 实验室名称下拉框
@@ -129,7 +142,6 @@ $(function () {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            console.log(data.code)
             let str = ``;
             for (var i = 0; i < data.data.length; i++) {
                 $(data.data[i]).each(function () {
@@ -139,14 +151,11 @@ $(function () {
                 })
                 $("#la_name").append(str);
             }
-
             if (data.code === 200) {
                 console.log(data.msg);
             } else if (data.code === 100) {
                 console.log(data.msg);
             }
-
-
         },
         error: function (data) {
             console.log(data.msg);

@@ -5,9 +5,13 @@ $(function () {
      * 展示初始化页面
      */
     $(document).ready(function () {
-        $.ajax({
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                 $.ajax({
             type: "GET",
-            url: "http://bread.varsion.cn/api/approval/showall?code=xxx",
+            url: "http://bread.varsion.cn/api/approval/showall?code="+result.code,
             success: function (data) {
                 if (data.code === 200) {
                     let str = ``;
@@ -48,6 +52,13 @@ $(function () {
                 console.log("error")
             }
         })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+       
     })
 
     /**
@@ -58,11 +69,15 @@ $(function () {
         $(".search_icon").click(function () {
             var value = $('.seacher_input').val();
             var code = 'xxxxxx';
-            $.ajax({
+                dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+               $.ajax({
                 type: "GET",
                 datatype: "json",
                 data: {
-                    code: code,
+                    code: result.code,
                     form_id: value
                 },
                 url: "http://bread.varsion.cn/api/approval/searchform", //通过表单编号和申请人姓名查询表单
@@ -106,6 +121,14 @@ $(function () {
                     $('#form_history').empty().append(str);
                 }
             })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
+            
         })
     }
 
@@ -133,12 +156,18 @@ $(function () {
                     type_name = "实验室仪器设备借用单";
                     break;
             }
-            $.ajax({
+            
+            
+                dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                            $.ajax({
                 type: "GET",
                 datatype: "json",
                 data: {
                     type_name: type_name,
-                    code: code
+                    code: result.code
                 },
                 url: "http://bread.varsion.cn/api/approval/selecttype", //通过表单类型查询表单
                 error: function (data, type, err) {
@@ -186,6 +215,14 @@ $(function () {
                     }
                 }
             })
+
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
         })
     }
 })

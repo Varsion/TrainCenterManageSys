@@ -11,7 +11,14 @@ var code = "asdfasdklfa";
  *  ]
  */
 $(document).ready(function() {
-    $.get(SERVER_PATH+"api/fill/forminfo?code="+code,function(data){
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                // alert(result.code)
+                $.get(SERVER_PATH+"api/fill/forminfo?code="+result.code,function(data){
+                    
+                    // alert(data)
         let Str = '';
         if(data.data.length == 5){
             Str += `<div class="row">
@@ -56,7 +63,8 @@ $(document).ready(function() {
             </div>
             </div>`;
         }else if(data.data.length = 3){
-            Str = `<div>
+            Str = `<div class="row">
+            <div>
             <a href="./site-borrowing-application-form.html">
                 <div class="img"><img src="../images/sj.png" alt=""></div>
                 <p>实验室借用申请</p>
@@ -87,6 +95,13 @@ $(document).ready(function() {
         }
         $('.main').empty();
         $('.main').append(Str);
-    })
+    }) 
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+    
 }
 );

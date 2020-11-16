@@ -236,4 +236,8 @@ Route::prefix('approval')->namespace('Approval')->group(function () {//审批展
 });
 
 
+//钉钉code测试
 Route::get('dingcode','TestController@dingcode');
+
+//钉钉权限分离
+Route::get('rolesdiscrete','DingCode\DingController@rolesDiscrete');

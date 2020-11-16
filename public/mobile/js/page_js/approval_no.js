@@ -15,9 +15,14 @@ function select(){
         alert("输入不能为空")
         return;
     }
-    $.ajax({
+    
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+               $.ajax({
         type: "GET",
-        url:SERVER_PATH + "api/approval/select?code=" + code + "&data=" + data,
+        url:SERVER_PATH + "api/approval/select?code=" + result.code + "&data=" + data,
         success:function (data) {
             console.log(data);
             if(data.code === 200){
@@ -48,6 +53,14 @@ function select(){
             console.log("error")
         }
     })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
+   
 }
 
 /**
@@ -77,9 +90,14 @@ $('.seacher_select').change(function (){
             break;
     }
     console.log(type_name);
-    $.ajax({
+    
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+        $.ajax({
         type:"GET",
-        url:"http://bread.varsion.cn/api/approval/classify?code=xxx&type_name=" + type_name,
+        url:"http://bread.varsion.cn/api/approval/classify?code="+result.code+"&type_name=" + type_name,
         // url:"http://bread.varsion.cn/api/approval/classify?code=" + code + "&type_name=" + type_name,
         success:function (data){
             console.log(data);
@@ -111,6 +129,14 @@ $('.seacher_select').change(function (){
             console.log("error")
         }
     })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
+    
 });
 
 /**
@@ -120,10 +146,13 @@ $('.seacher_select').change(function (){
  *  ]
  */
 $(document).ready(function (){
-
-    $.ajax({
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+               $.ajax({
         type:"GET",
-        url:"http://bread.varsion.cn/api/approval/show?code=xxx",
+        url:"http://bread.varsion.cn/api/approval/show?code="+result.code,
         // url:"http://bread.varsion.cn/api/approval/show?code=" + code,
         success:function (data){
             console.log(data);
@@ -156,5 +185,13 @@ $(document).ready(function (){
             console.log("error")
         }
     })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
+    
 })
 

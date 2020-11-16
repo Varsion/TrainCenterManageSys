@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fill;
 use App\Http\Requests\Fill\OpenLabUse\OpenLabuseBorRequest;
 use App\Http\Requests\Fill\OpenLabUse\ViewLabBorrowRequest;
 use App\Models\Form;
+use App\Models\Apporve;
 use App\Models\OpenLaboratoryLoan;
 use App\Models\OpenLaboratoryStudentList;
 use Illuminate\Support\Facades\Validator;
@@ -41,6 +42,8 @@ class OpenLabUseController extends Controller
         $data1 = Form::hwc_openLabUseBor($form_id,$code);
         $data2 = OpenLaboratoryLoan::hwc_openLabUseBor($form_id,$reason_use,$porject_name,$start_time,$end_time);
         $data3 = OpenLaboratoryStudentList::hwc_openLabUseBor($form_id,$infor);
+        
+        tsy_save($form_id);
         return $data1&&$data2&&$data3?
             json_success('开放实验室使用申请填报成功!',null,200) :
             json_fail('开放实验室使用申请填报失败!',null,100);
@@ -58,6 +61,7 @@ class OpenLabUseController extends Controller
         $data = OpenLaboratoryLoan::hwc_viewOpenLabUse($form_id);
         $data1 = OpenLaboratoryStudentList::hwc_viewOpenLabManUse($form_id);
         $data['equipment_array']=$data1;
+        tsy_save($form_id);
         return $data?
             json_success('开放实验室使用申请表单展示成功!',$data,200) :
             json_fail('开放实验室使用申请表单展示失败!',null,100);
