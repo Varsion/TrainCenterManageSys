@@ -11,4 +11,11 @@ class TestController extends Controller
         $res  = getDinginfo($code);
         $tel  =  $res->tel;
     }
+
+    public function dingcode(Request $request){
+            $code = $request->code;
+            $res = getDinginfo($code);
+
+            return json_success("钉钉code测试",$res,200);
+    }
 }

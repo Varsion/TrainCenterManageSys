@@ -7,15 +7,15 @@ if (!function_exists('getDinginfo')) {
      */
     function getDinginfo($code)
     {
-        // $app = getApp();
-        // $app->user->getUserByCode($code);
+        $app  = getApp();
+        $datas = $app->user->getUserByCode($code);
 
-        $info = json_encode([
-            'name'=>'汤海',
-            'tel' =>'12312341234',
-            'role'=>'实验室中心主任'
-        ]);
-        $data = json_decode($info);
-        return $data;
+        // $info = json_encode([
+        //     'name'=>'汤海',
+        //     'tel' =>'12312341234',
+        //     'role'=>'实验室中心主任'
+        // ]);
+        // $data = json_decode($info);
+        return $datas;
     }
 }
