@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no”>
+  <title>审批-实验室借用申请</title>
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../css/base_x.css" media="all">
+  <link rel="stylesheet" href="../css/approval_labLoan.css" media="all">
+</head>
+
+<body>
+  <!-- q xxl -->
+  <!-- 实验室借用申请页面 -->
+  <!-- 头部：标题+返回键 -->
+  <div class="app_header">
+    <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">表单编号</a>
+  </div>
+  <!-- 按钮：审批+历史 -->
+  <div class="app_middle">
+    <div class="app_btn">
+      <a href="approval_no.html" class="applab_btn change_btn_1">审批</a>
+      <a href="approval_history.html" class="hty_btn change_btn_2 ">历史</a>
+    </div>
+  </div>
+  <!-- 实验室借用标题 -->
+  <div class="labLoan_title">
+    <p>实验室借用申请单</p>
+    <p>2020 年 10 月 11日 </p>
+  </div>
+  <!-- 实验室借用表格 -->
+  <div class="labLoan_form">
+  </div>
+  <div class="app_choice_btn">
+    <a class="no_app">审批不通过</a>
+    <a class="ok_app">审批通过</a>
+  </div>
+  <!-- 末尾表单编号 -->
+  <div class="table_no">
+    <p id="form_id"></p>
+  </div>
+  <!-- 弹出框蒙版 -->
+  <div class="pop"></div>
+  <!-- 审批不通过弹出框 -->
+  <div class="common_dialog" id="no_dialog">
+    <div class="no_app_title">审批意见</div>
+    <div class="no_app_suggest">
+      <textarea style="resize:none;" id="suggest"></textarea>
+    </div>
+    <div class="no_app_btn">
+      <a class="no_cancel_btn">取消</a>
+      <a class="no_ok_btn">确定</a>
+    </div>
+  </div>
+  <!-- 审批通过弹出框 -->
+  <div class="common_dialog" id="ok_dialog">
+    <div class="ok_icon"><img src="../images/ok.png"></div>
+    <div class="ok_title">
+      审批提交成功
+    </div>
+    <div class="ok_btn">确定</div>
+  </div>
+</body>
+
+<script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="../js/page_js/approval_labLoan.js"></script>
+<script type="text/javascript" src="../js/page_js/btn_change.js"></script>
+</html>

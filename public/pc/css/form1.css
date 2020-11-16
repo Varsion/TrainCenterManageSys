@@ -1,0 +1,29 @@
+*{
+margin: 0 ;
+padding: 0;
+}
+body{
+    height: 100%;
+}
+table{
+    width: 1000px;
+    height: 1008px;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse:collapse;
+}
+span{
+    margin-left: 20px;
+} 
+tbody{
+    height: 50%;
+} 
+ #forminfo>tr{
+    width: 25%;
+    height: 50px;
+}
+#forminfo>td{
+    width: 25%;
+    height: 50px;
+
+}

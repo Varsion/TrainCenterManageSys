@@ -1,0 +1,174 @@
+// 设置统一的样式
+// 颜色 字体大小等
+
+@baseColor :#0088FE;
+@borderColor: #C7C8C9;
+@html-fontsize: 24;
+@import "common_x";
+body{ overflow:hidden;overflow-y: scroll !important;}
+// body{ overflow-y:auto !important;}
+body::-webkit-scrollbar-track-piece {  background-color: rgba(0, 0, 0, 0);  border-left: 1px solid rgba(0, 0, 0, 0);}
+body::-webkit-scrollbar {  width: 6px;  height: 13px;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;}
+body::-webkit-scrollbar-thumb {  background-color: rgba(0, 0, 0, 0.5);  background-clip: padding-box;  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;  min-height: 28px;}
+body::-webkit-scrollbar-thumb:hover { background-color: rgba(0, 0, 0, 0.5);  -webkit-border-radius: 5px;  -moz-border-radius: 5px;  border-radius: 5px;
+body {
+    width: 15rem;
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: Microsoft YaHei Regular;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}}
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+}
+// fffff
+.app_header {
+    display: flex;
+    width: 15rem;
+    height: 55rem/@html-fontsize;
+    height: 55rem/@html-fontsize;
+    background: #ffffff;
+    box-shadow: 0px 2rem/@html-fontsize 2rem/@html-fontsize 0px rgba(0, 0, 0, 0.02);
+
+    .title {
+        vertical-align: middle;
+        margin-top: 17rem/@html-fontsize;
+        margin-left: 96rem/@html-fontsize;
+
+    }
+
+    .title,
+    .back_btn .layui-icon-left {
+        font-size: 18rem/@html-fontsize;
+    }
+
+    .back_btn {
+        margin: 20rem/@html-fontsize 0 16rem/@html-fontsize 18rem/@html-fontsize ;
+    }
+
+}
+
+.app_middle {
+    height: 51rem/@html-fontsize;
+    background-color: #F8F8F8;
+
+    .app_btn {
+        padding-top: 24rem/@html-fontsize;
+        margin-left: 18rem/@html-fontsize;
+    }
+  
+    .app_btn a {
+        width: 51rem/@html-fontsize;
+        height: 22rem/@html-fontsize;
+        border-radius: 10rem/@html-fontsize;
+        font-size: 12rem/@html-fontsize;
+        padding: 5rem/@html-fontsize 14rem/@html-fontsize;
+
+    }
+    .app_btn a:focus{
+        color: #fff;
+    }
+    
+    .app_btn a:nth-child(2) {
+        margin-left: 9rem/@html-fontsize;
+    }
+}
+
+.app_content {
+    // margin-top: 5rem/@html-fontsize;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.02);
+
+    .seacher_input,
+    .seacher_select {
+        width: 278rem/@html-fontsize;
+        height: 26rem/@html-fontsize;
+        background: #ffffff;
+        border: 1px solid #c7c8c9;
+        border-radius: 5px;
+        margin-top: 13rem/@html-fontsize;
+        margin-left: 47rem/@html-fontsize;
+        color: #000000;
+        font-size: 10rem/@html-fontsize !important;
+        padding-left: 9rem/@html-fontsize;
+    }
+
+    .search_icon {
+        margin-left: -25rem/@html-fontsize;
+        font-size: 13rem/@html-fontsize;
+        vertical-align: middle;
+        color: #C7C8C9;
+    }
+
+    .seacher_select {
+        // font-size: 13rem/@html-fontsize;
+        option{
+            text-align: left;
+            font-size: 0.75rem /@html-fontsize ;
+            display: block;
+            white-space: pre;
+            min-height: 1.2em/@html-fontsize;  
+            padding: 0 !important;
+        }
+    }
+
+    
+}
+
+.app_form {
+    height: 490rem/@html-fontsize;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 4rem/@html-fontsize;
+   
+    .layui-table th {
+        // color: #000000;
+        font-size: 12rem/@html-fontsize;
+        background-color: #F8F8F8;
+        padding: 12rem/@html-fontsize  0 !important;
+    }
+    .layui-table th,td{
+        text-align: center;
+    }
+  
+    .layui-table td {
+        font-size: 11rem/@html-fontsize;
+        padding: 14rem/@html-fontsize 0   17rem/@html-fontsize 0;
+    }
+    .btn{
+        // white-space:nowrap;
+         word-break: keep-all;
+    }
+
+    .app_lk_btn {
+        width: 55rem/@html-fontsize;
+        height: 22rem/@html-fontsize;
+        padding: 5rem/@html-fontsize 11rem/@html-fontsize;
+        background: #0088fe;
+        border-radius: 10rem/@html-fontsize;
+        color: #ffffff;
+    }
+    .app_status{
+        .ok_status{
+            color: #569FDC;
+        }
+        .no_status{
+            color: #F73232;
+        }
+        
+    }
+}
+.change_btn_2{
+    background: #ffffff;
+    color: #000000;}
+
+.change_btn_1{
+    background: #0088fe;
+    color:#FFFFFF ;
+}

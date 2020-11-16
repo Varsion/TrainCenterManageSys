@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+          user-scalable=no”>
+    <title>审批历史页面</title>
+
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/base_x.css" media="all">
+</head>
+
+<body>
+<!-- q xxl -->
+<!-- 审批历史页面 -->
+<!-- 头部：标题+返回键 -->
+<div class="app_header">
+    <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">审批历史</a>
+</div>
+<!-- 按钮：审批+历史 -->
+<div class="app_middle">
+    <div class="app_btn">
+        <a href="approval_no.html" class="applab_btn change_btn_2">审批</a>
+        <a href="approval_history.html" class="hty_btn change_btn_1">历史</a>
+    </div>
+</div>
+<div class="app_content">
+    <div>
+        <input class="seacher_input" type="search" id="input1">
+        <i class="layui-icon layui-icon-search search_icon"></i>
+    </div>
+    <div>
+        <select class="seacher_select">
+            <option value="0">全部类型</option>
+            <option value="1">实验室借用申请表</option>
+            <option value="2">开放实验室使用申请表</option>
+            <option value="3">实验室仪器借用表</option>
+        </select>
+    </div>
+</div>
+<div class="app_form">
+    <form>
+        <table class="layui-table" lay-skin="line">
+            <thead>
+            <tr>
+                <th>表单编号</th>
+                <th>表单类型</th>
+                <th>申请人</th>
+                <th>审批结果</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tbody  class="show" id="form_history">
+            <tr>
+                <td class="form_id">101010222</td>
+                <td class="type_name">实验室仪器设备借用</td>
+                <td class="applicant_name">汤海</td>
+                <td class="status_name"><a class="ok_status" href="Hty_labInstr.html?status=0">通过</a></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+<!--<script type="text/javascript" src="../js/page_js/hty_labInstr.js"></script>-->
+<script src="../js/page_js/approval_history.js"></script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no”>
+    <title>审批</title>
+    
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/base_x.css" media="all">
+</head>
+
+<body>
+    <!-- q xxl -->
+    <!-- 未审批 -->
+    <!-- 头部：标题+返回键 -->
+    <div class="app_header">
+        <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+        <a href="#" class="title">等待审批</a>
+    </div>
+    <!-- 按钮：审批+历史 -->
+    <div class="app_middle">
+        <div class="app_btn">
+          <a href="approval_no.html"   class="applab_btn change_btn_1">审批</a>
+          <a href="approval_history.html" class="hty_btn change_btn_2">历史</a>
+        </div>
+    </div>
+    <div class="app_content">
+        <div>
+            <input class="seacher_input" type="search">
+            <i class="layui-icon layui-icon-search search_icon" onclick="select()"></i>
+        </div>
+        <div>
+            <select class="seacher_select">
+                <option value="0">全部类型</option>
+                <option value="1">实验室借用申请表</option>
+                <option value="2">开放实验室使用申请表</option>
+                <option value="3">实验室仪器借用表</option>
+            </select>
+        </div>
+    </div>
+    <div class="app_form">
+        <form >
+            <table class="layui-table" lay-skin="line">
+                <thead>
+                  <tr>
+                    <th>表单编号</th>
+                    <th>表单类型</th>
+                    <th>申请人</th>
+                    <th>查看</th>
+                  </tr>
+                </thead>
+                <tbody class="form_approval">
+                </tbody>
+              </table>   
+        </form>
+    </div>
+</body>
+<script src="../js/jquery-1.12.3(1).js"></script>
+<script src="../js/page_js/approval_no.js"></script>
+</html>

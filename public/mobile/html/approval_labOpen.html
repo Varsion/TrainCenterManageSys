@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no”>
+  <title>审批-开放实验室使用申请</title>
+
+  <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../css/base_x.css" media="all">
+  <link rel="stylesheet" href="../css/approval_labInstr.css" media="all">
+</head>
+
+<body>
+  <!-- q xxl -->
+  <!-- 开放实验室使用申请 页面-->
+  <!-- 头部：标题+返回键 -->
+  <div class="app_header">
+    <a href="#" class="back_btn"><i class="layui-icon  layui-icon-left"></i></a>
+    <a href="#" class="title">表单编号</a>
+  </div>
+  <!-- 按钮：审批+历史 -->
+  <div class="app_middle">
+    <div class="app_btn">
+      <a href="approval_no.html" class="applab_btn change_btn_1">审批</a>
+      <a href="approval_history.html" class="hty_btn change_btn_2 ">历史</a>
+    </div>
+  </div>
+  <!-- 实验室借用标题 -->
+  <div class="labLoan_title">
+    <p>开放实验室使用申请单</p>
+  </div>
+  <!-- 实验室借用表格 -->
+  <div class="labLoan_form">
+<table>
+        <tr>
+            <td>姓名</td>
+            <td>学号</td>
+            <td>联系电话</td>
+            <td>承担工作</td>
+          </tr>
+          <tr>
+            <td>哈哈哈哈哈哈</td>
+            <td>18380320222</td>
+            <td>123456789101</td>
+            <td>承担工作</td>
+          </tr>
+          <tr>
+            <td>哈哈哈哈哈哈</td>
+            <td>18380320222</td>
+            <td>123456789101</td>
+            <td>承担工作</td>
+          </tr>
+          <tr>
+            <td>哈哈哈哈哈哈</td>
+            <td>18380320222</td>
+            <td>123456789101</td>
+            <td>承担工作</td>
+          </tr>
+          <tr>
+              <td colspan="4">
+                  <br/>
+               &nbsp; 承诺:&nbsp; &nbsp;
+                疫情特殊时期，我承诺学生进入实验室后第一时
+                间给学生宣讲《实验室疫情个人防护常识》，并拍照<br/>
+                存档。在实验室期间要求同学们隔位而坐。配合实验
+                室中心相关工作安排。<br/>
+                <br/>
+              </td>
+          </tr>
+      </table>
+    </form>
+  </div>
+  <div class="app_choice_btn">
+    <a class="no_app">审批不通过</a>
+    <a class="ok_app">审批通过</a>
+  </div>
+  <!-- 末尾表单编号 -->
+  <div class="table_no">
+      <p id="form_id"></p>
+  </div>
+  <!-- 弹出框蒙版 -->
+  <div class="pop"></div>
+  <!-- 审批不通过弹出框 -->
+  <div class="common_dialog" id="no_dialog">
+    <div class="no_app_title">审批意见</div>
+    <div class="no_app_suggest">
+      <textarea style="resize:none;" id="suggest"></textarea>
+    </div>
+    <div class="no_app_btn">
+      <a class="no_cancel_btn">取消</a>
+      <a class="no_ok_btn">确定</a>
+    </div>
+  </div>
+  <!-- 审批通过弹出框 -->
+  <div class="common_dialog" id="ok_dialog">
+    <div class="ok_icon"><img src="../images/ok.png"></div>
+    <div class="ok_title">
+      审批提交成功
+    </div>
+    <div class="ok_btn">确定</div>
+  </div>
+</body>
+
+<script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="../js/page_js/approval_labOpen.js"></script>
+<script type="text/javascript" src="../js/page_js/btn_change.js"></script>
+</html>

@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #F8F8F8;
+}
+.layui-icon-left{
+    font-size: 34px;
+    background-color: #FFFFFF;
+    height: 55px;
+    line-height:55px;;
+}
+.layui-fluid{
+    padding: 0px;
+}
+.title{
+ background-color: #FFFFFF;
+ height: 55px;
+ line-height:55px;
+}
+.formtype{
+    background-color: transparent;
+    padding-top: 20px;
+}
+.formone{
+width: 51px;
+margin-left: 15px;
+}

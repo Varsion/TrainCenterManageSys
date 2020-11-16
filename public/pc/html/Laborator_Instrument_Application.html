@@ -1,0 +1,180 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>实验室仪器借用申请表</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/paginate.css">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../css/Laboratory_Loan_Application.css">
+</head>
+
+
+
+
+<body>
+    <!-- 这是页面的头部 -->
+    <header class="am-topbar admin-header">
+        <div class="am-topbar-brand">
+            <img src="../images/logo.png">
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+                class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+
+                <li class="am-dropdown" data-am-dropdown>
+                    <a id="am-dropdown-toggle" class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <span class="am-icon-user">&nbsp;</span> Admin <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+
+                        <li><a href="#" onclick="logout()"><span class="am-icon-power-off"></span> 注销</a></li>
+                    </ul>
+                <li class="am-hide-sm-only">
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- 这是页面的身体 -->
+    <div class="am-cf admin-main">
+        <!-- 这是侧导航栏    -->
+        <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+            <div class="am-offcanvas-bar admin-offcanvas-bar">
+                <div class="nav_list">
+                    <i class="iconfont icon-nav"></i>
+                </div>
+                <ul class="am-list admin-sidebar-list">
+                    <li><a href="../html/Super_Admin_Home.html"><i class="iconfont icon-linedesign-12"></i> <span
+                                class="icon_text">表单查看</span></a></li>
+                    <li><a href="../html/Device_management.html"><i class="iconfont icon-guanlipeizhi"></i> <span
+                                class="icon_text">设备管理</span></a></li>
+                    <li>
+                        <a href="../html/professional.html"><i class="iconfont icon-guanlizujian"></i><span
+                                class="icon_text">专业班级管理</span></a>
+                    </li>
+                    <li><a href="../html/Department.html"><i class="iconfont icon-guanligongju"></i> <span
+                                class="icon_text">系别管理</span></a></li>
+                    <li><a href="../html/site_management.html"><i class="iconfont icon-changdi"></i> <span
+                                class="icon_text"></span>场地管理<span></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="am-cf am-padding">
+                <div class="am-fl am-cf">
+                    <ol class="am-breadcrumb">
+                        <li>
+                            <a href="#"> <strong class="am-text-primary am-text-lg">超级管理员</strong></a>
+                        </li>
+                        <li><a href="../html/Super_Admin_Home.html">表单查看</a></li>
+                        <li><a href="#">实验室仪器借用申请表</a></li>
+
+
+                    </ol>
+                </div>
+            </div>
+            <!-- 主页 -->
+            <div class="box_contain am-u-sm-centered ">
+                <!-- 按钮和搜索 -->
+                <div class="am-g am-margin am-u-sm-centered am-wid">
+                    <div class="am-u-lg-6 am-u-sm-6 ">
+                    </div>
+                    <div class="am-u-lg-6 am-u-sm-6">
+                        <div class="am-show-md-down down-left">
+                            <div class="input_ser">
+                                <input type="text" name="sear_input">
+                                <i class="iconfont icon-sousuo"></i>
+                            </div>
+                        </div>
+                        <div class="am-hide-md-down down-left">
+                            <div class="input_ser">
+                                <input type="text" name="name" id="name" value="">
+                                <i class="iconfont icon-sousuo" onclick="select()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 表格 -->
+            <div class="am-scrollable-horizontal am-u-sm-centered">
+                <table class="am-table ">
+                    <thead>
+                        <tr class="am-text-center am-text-middle">
+                            <th class="am-text-center am-text-middle">表单编号</th>
+                            <th class="am-text-center am-text-middle">申请人</th>
+                            <th class="am-text-center am-text-middle">完成时间</th>
+                            <th class="am-text-center am-text-middle">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_list">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="containerr">
+                <div class="row" style="padding:2em 0;">
+                    <p id="p2"></p>
+                    <ul class="pagination" id="pagination2"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
+        <span class="am-icon-btn am-icon-th-list"></span>
+    </a>
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/Check_login.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/layui.all.js"></script>
+    <script src="../js/jqPaginator.js"></script>
+    <script src="../js/page_js/Laborator_Instrument_Application.js"></script>
+
+
+</body>
+
+</html>

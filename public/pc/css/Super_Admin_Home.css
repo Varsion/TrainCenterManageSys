@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.am-topbar,
+.admin-header {
+    margin: 0;
+    height: 60px;
+    background: #5A8CFF;
+    box-shadow: 1px 5px 10px 1px rgba(3, 3, 3, 0.11);
+}
+
+.am-topbar-brand {
+    width: 259px;
+    height: 59px;
+    background: #4878E7;
+    float: left;
+}
+
+.am-topbar-brand img {
+    padding: 1px 0 0 28px;
+}
+
+.am-topbar-right {
+    margin-top: 5px;
+}
+
+#am-dropdown-toggle {
+    color: white;
+}
+
+#am-dropdown-toggle:hover {
+    background: transparent;
+}
+
+.am-btn-success {
+    outline: none;
+    margin-top: 13px;
+}
+
+.admin-sidebar {
+    border: none;
+    height: 100%;
+}
+
+.admin-offcanvas-bar {
+    background-color: white;
+}
+
+.admin-main {
+    background-color: white;
+    height: 100%;
+}
+
+.nav_list {
+    height: 60px;
+    background-color: white;
+}
+
+.icon-nav {
+    float: right;
+    font-size: 24px;
+    padding: 10px;
+    color: #4878E7;
+}
+
+.am-list>li {
+    position: relative;
+    display: block;
+    margin-bottom: 0px;
+    background-color: #fff;
+    border: none;
+    border-width: 0;
+}
+
+.admin-sidebar-sub li:first-child {
+    border: none;
+}
+
+.admin-sidebar-list li a {
+    color: #151E34;
+    padding-left: 55px;
+}
+
+.admin-sidebar-list li a:hover,
+#collapse-nav:hover {
+    background-color: #5A8BFF;
+    color: white;
+}
+
+.admin-sidebar-sub {
+    background: none;
+    box-shadow: none;
+}
+
+.am-icon-home,
+.am-icon-sign-out {
+    font-size: 20px;
+}
+
+.icon_text {
+    margin-left: 10px;
+}
+
+.admin-content {
+    background-color: #F0F3FC;
+    min-height: 875px;
+}
+
+.am-padding {
+    height: 60px;
+    background: #FBFCFE;
+    box-shadow: 1px 5px 2px 1px rgba(3, 3, 3, 0.01);
+}
+
+.am-text-primary {
+    color: #4878E7;
+}
+
+.am-g {
+    margin: 95px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.home_dv {
+    padding: 0;
+    width: 100%;
+    max-width: 377px;
+    height: 223px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 9px 1px rgba(3, 3, 3, 0.05);
+    border-radius: 20px;
+    position: relative;
+}
+
+.home_dv:hover {
+    cursor: pointer;
+}
+
+.excel_text {
+    width: 100%;
+    height: 53px;
+    background-color: #4878E7;
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.excel_text p {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+#excel_ch,
+#excel_ch1,
+#excel_ch2,
+#excel_ch3,
+#excel_ch4,
+#excel_ch5,
+#excel_ch6,
+#excel_ch7,
+#excel_ch8,
+#excel_ch9,
+#excel_ch10,
+#excel_ch11,
+#excel_ch12,
+#excel_ch13,
+#excel_ch14 {
+    max-width: 340px;
+    width: 100%;
+    height: 170px;
+}
+
+
+/* i*/
+
+.icon-sousuo {
+    font-size: 26px;
+}
+
+.icon-linedesign-12,
+.icon-guanlipeizhi,
+.icon-guanlizujian,
+.icon-guanligongju,
+.icon-changdi {
+    font-size: 20px;
+}
+
+.icon-guanlizujian {
+    padding-right: 5px;
+}
+
+
+/* iphone 5 */
+
+
+/* iphoneX */
+
+@media screen and (min-width: 375px) {
+    .admin-content {
+        background-color: #F0F3FC;
+        min-height: 1400px;
+    }
+    .ag_mar {
+        margin-top: 40px;
+    }
+    .am-g {
+        margin: 0px;
+    }
+}
+
+
+/* iphone6 7 8 plus */
+
+@media screen and (min-width: 414px) {
+    .admin-content {
+        background-color: #F0F3FC;
+        min-height: 1400px;
+    }
+    .ag_mar {
+        margin-top: 40px;
+    }
+    .am-g {
+        margin: 0px;
+    }
+}
+
+
+/* ipad */
+
+
+/* ipad pro */
+
+@media screen and (min-width: 1024px) {
+    .ag_mar {
+        margin-top: 40px;
+    }
+    .am-g {
+        margin: 0px;
+    }
+    .admin-content {
+        background-color: #F0F3FC;
+        min-height: 1500px;
+    }
+}
+
+
+/* pc */
+
+@media screen and (min-width: 1025px) {
+    .admin-content {
+        background-color: #F0F3FC;
+        min-height: 875px;
+    }
+    .ag_mar {
+        margin-top: 95px;
+    }
+    .am-g {
+        margin: 0;
+    }
+}
