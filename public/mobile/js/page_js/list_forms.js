@@ -17,9 +17,11 @@ function category(){
         var form = $("#status option:selected")
         var type_name = type.val();
         var form_status = form.val();
-        console.log(type_name,form_status);
-        console.log(SERVER_PATH+"api/fill/selectionform?code="+code+"&type_name="+type_name+"&form_status="+form_status);
-        $.get(SERVER_PATH + "api/fill/selectionform?code="+code+"&type_name="+type_name+"&form_status="+form_status,function(data){
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+        $.get(SERVER_PATH + "api/fill/selectionform?code="+result.code+"&type_name="+type_name+"&form_status="+form_status,function(data){
             let Str=``;
             console.log(data.data);
             if(data.data == null){
@@ -57,6 +59,13 @@ function category(){
             }
             
         })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+        
 
 }
 
@@ -75,7 +84,12 @@ $(document).ready(function() {
     var form = $("#status option:selected")
     var type_name = type.val();
     var form_status = form.val();
-    $.get(SERVER_PATH + "api/fill/selectionform?code="+code+"&type_name="+type_name+"&form_status="+form_status,function(data){
+    
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+        $.get(SERVER_PATH + "api/fill/selectionform?code="+result.code+"&type_name="+type_name+"&form_status="+form_status,function(data){
         let Str=``;
         
         console.log(data.data[0]);
@@ -113,6 +127,13 @@ $(document).ready(function() {
         $('#form').append(Str);
     }
     })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+    
 })
 /**
  * 方法作用 根据form id 搜索对应的表单
@@ -127,7 +148,11 @@ window.onclick = function(){
     var btnObj = document.getElementById('btn01');
     btnObj.onclick = function(){
         var form_id = $('#import').val();
-        $.get(SERVER_PATH +"/api/fill/selectform?form_id="+ form_id + "&code=" + code,function(data){
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+            $.get(SERVER_PATH +"/api/fill/selectform?form_id="+ form_id + "&code=" + result.code,function(data){
             Str = ``;
             console.log(data.data);
             if(data.data == null){
@@ -168,5 +193,12 @@ window.onclick = function(){
                 $('#form').append(Str);
             }
         })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+        
     }
 }

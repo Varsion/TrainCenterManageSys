@@ -47,7 +47,7 @@ function  jujement (a,b){
             console.log(data.data.equipment_array[0].equipment_name)
             if (data.code == 200) {
                 //内容显示
-
+                // alert(JSON.stringify(data.data))
                 var strhead = `  <tr>
                     <td >借用部门</td>
                     <td colspan="3">${data.data.borrow_department}</td>      

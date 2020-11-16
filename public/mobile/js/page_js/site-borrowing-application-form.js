@@ -142,34 +142,46 @@ function hwc_LaboratoryLoan(){
     var start_class = document.getElementById('start_class').value;
     var end_class = document.getElementById('end_class').value;
     var name = document.getElementById("class_name");
-    var num = name.selectedIndex
-    var class_name = name[num].innerHTML
-    $.ajax({
+    var num = name.selectedIndex;
+    var class_name = name[num].innerHTML;
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                $.ajax({
         async: false,
         type: "POST",
         url:SERVER_PATH+'api/fill/filllabborrow',
-        data: {code : code, laboratory_id : laboratory_id, course_name : course_name, class_name : class_name, number : number, purpose : purpose,
+        data: {code : result.code, laboratory_id : laboratory_id, course_name : course_name, class_name : class_name, number : number, purpose : purpose,
             start_time : start_time, end_time : end_time,start_class : start_class,end_class : end_class},
-        contentType : "application/x-www-form-urlencoded; charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            console.log(data.data)
-            if(data.code == 200){
-                $('.success-alert').show();
-                $('.mask').show();
-            }else{
+            contentType : "application/x-www-form-urlencoded; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.data)
+                if(data.code == 200){
+                    $('.success-alert').show();
+                    $('.mask').show();
+                }else{
+                    $(".failure-alert").show();
+                    $('.mask').show();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $(".failure-alert").show();
                 $('.mask').show();
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
             }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".failure-alert").show();
-            $('.mask').show();
-            console.log(XMLHttpRequest.status);
-            console.log(XMLHttpRequest.readyState);
-            console.log(textStatus);
-        }
+        });
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
     });
+    
+    
 }
 
 /**

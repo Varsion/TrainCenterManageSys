@@ -40,6 +40,7 @@ window.onload=function(){
             url : SERVER_PATH+"/api/fill/viewlabborrow",
             data: {form_id:formid},// 将json数据转化为字符串
             success: function (data) {
+                alert(data)
                 console.log(data)
               
                 if(data.code==200){
@@ -158,7 +159,7 @@ window.onload=function(){
           
             },
             error: function (data) {
-    
+            alert(data)
                 console.log(data)
             }
         })

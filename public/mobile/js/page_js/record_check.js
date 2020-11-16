@@ -1,6 +1,5 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
 
-
 /**
  * 方法作用 期末教学记录检查实验室名称展示
  * 请求接口 api/fill/teachback

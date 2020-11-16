@@ -141,15 +141,22 @@ function btn1(){
                 })
             }
         }
-        var  vdata = {
+        
+        
+            dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result1) {
+                var  vdata = {
             borrow_department:$("#borrow_department").val(),
             borrow_application:$("#borrow_application").val(),
             destine_start_time:$("#destine_start_time").val(),
             destine_end_time:$("#destine_end_time").val(),
-            code:code,
+            code:result1.code,
             equipment_array:result
         }
-    $.ajax({
+        alert(JSON.stringify(result))
+                $.ajax({
             type: "post",
             url: SERVER_PATH+'api/fill/equipmentborrowing',
             data: vdata,
@@ -171,4 +178,12 @@ function btn1(){
                 console.log(textStatus);
             }
     })
+
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
 }

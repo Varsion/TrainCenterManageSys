@@ -29,8 +29,15 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
     // 设定一个判断值,1为通过，2为不通过
     var app_status =0
      // ”审批不通过“弹出框:点击“确定”按钮
+     
+
      $(".no_ok_btn").click(function(){
-         if($("#suggest").val() ==""){
+         
+                  dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                 if($("#suggest").val() ==""){
              alert("审批意见为空噢~~~请输入")
          }
          else{
@@ -72,6 +79,14 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
         $("#no_dialog").hide()
          }
         app_status=2
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+
+        
     })
 
 
