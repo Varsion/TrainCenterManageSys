@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dingcode</title>
+</head>
+<body>
+    <div style="text-align: center;margin-top: 200px;">
+        <button onclick="dingcode()" style="width: 300px;height: 100px;">DingCode测试</button>
+    </div>
+    <p id="dingcode-list">
+
+    </p>
+
+</body>
+<script src="mobile/js/opending/dingtalk.open.js"></script>
+<script src="mobile/js/jquery-1.12.3.js"></script>
+<script>
+function dingcode(){
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                $.get('api/dingcode'+result.code,function(){
+                    $('#dingcode-list').append(data.data);
+                })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+}
+</script>
+</html>
