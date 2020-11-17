@@ -15,10 +15,8 @@ $(document).ready(function() {
         dd.runtime.permission.requestAuthCode({
             corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
             onSuccess: function (result) {
-                // alert(result.code)
-                $.get(SERVER_PATH+"api/fill/forminfo?code="+result.code,function(data){
-                    
-                    // alert(data)
+            $.get(SERVER_PATH+"api/fill/forminfo?code="+result.code,function(data){
+
         let Str = '';
         if(data.data.length == 5){
             Str += `<div class="row">

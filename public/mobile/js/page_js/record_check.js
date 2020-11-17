@@ -258,11 +258,18 @@ function cwp_teachadd() {
     }
     var data = infor;
 
-    $.ajax({
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                $.ajax({
         async: false,
         type: "POST",
         url: SERVER_PATH + 'api/fill/teachadd',
-        data: {data: data},
+        data: {
+            data: data，
+            code:result.code
+        },
     //    contentType: "application/x-www-form-urlencoded; charset=utf-8",
         dataType: "json",
         success: function (data) {
@@ -280,6 +287,13 @@ function cwp_teachadd() {
             console.log(data + '失败') ;
         }
     });
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+    
 }
 
 /**

@@ -95,6 +95,8 @@ class ShowController extends Controller
         $code = $request['code'];
         $res  = getDinginfo($code);
         $name= $res->name;
+        // var_dump($name);
+        // die();
         $data1 = Form::tsy_selectType($name);
         if ($data1 == null){
             return json_fail("查找失败",null,100);

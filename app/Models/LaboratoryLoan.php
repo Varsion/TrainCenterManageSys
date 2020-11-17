@@ -45,7 +45,7 @@ class LaboratoryLoan extends Model
      * @author HuWeiChen <github.com/nathaniel-kk>
      * @return array
      */
-    public static function hwc_fillLabBorrow($code,$form_id,$laboratory_id,$course_name,$class_id,$number,$purpose,$start_time,$end_time,$start_class,$end_class){
+    public static function hwc_fillLabBorrow($tel,$form_id,$laboratory_id,$course_name,$class_id,$number,$purpose,$start_time,$end_time,$start_class,$end_class){
         try {
             $data = self::create([
                 'form_id' => $form_id,
@@ -58,7 +58,7 @@ class LaboratoryLoan extends Model
                 'end_time' => $end_time,
                 'start_class' => $start_class,
                 'end_class' => $end_class,
-                'phone' => getDinginfo($code)->tel,
+                'phone' => $tel,
             ]);
             return $data;
         } catch(\Exception $e){

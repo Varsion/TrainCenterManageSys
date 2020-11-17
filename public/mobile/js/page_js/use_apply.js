@@ -122,6 +122,7 @@ function openLabAppSub(){
         dd.runtime.permission.requestAuthCode({
             corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
             onSuccess: function (result) {
+
                     $.ajax({
                         async: false,
                         type: "POST",
@@ -130,6 +131,7 @@ function openLabAppSub(){
                         contentType : "application/x-www-form-urlencoded; charset=utf-8",
                         dataType: "json",
                         success: function (data) {
+                            alert("asdasdas")
                             console.log($('#infor').serialize())
                             console.log(data.data)
                             if(data.code == 200){

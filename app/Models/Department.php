@@ -37,7 +37,7 @@ class Department extends Model
     {
         try{
             $date=department::select('*')
-                ->paginate(5);
+                ->paginate(8);
               return $date;
         }catch (Exception $e){
             logger::Error('系部界面展示失败',[$e->getMessage()]);
@@ -125,7 +125,7 @@ class Department extends Model
     {
         try{
             $date=department::where('department_name','like','%'.$tby['department_name'].'%')
-                ->paginate(5);
+                ->paginate(8);
             return $date;
         }catch (Exception $e){
             logger::Error('系部查询界面展示失败',[$e->getMessage()]);

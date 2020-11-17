@@ -64,17 +64,12 @@
                     <form method="" id="form" action="#" name=from>
                         <div class="am-landing-bd am-u-sm-centered">
                             <div class="bd-hd">
-                                <p>扫码登录</p>
+                                <img src="../images/header.png" id="backg">
+                                <p>超级管理员</p>
                             </div>
-                            <div class="bd-inp">
-                               <i class="iconfont icon-saomakuang-copy"></i>
-                               <img src="../images/erweima.png">
-                            </div>
-                            <div class="bd-landing">
-                               <i class="iconfont icon-saoma" ></i>
-                               <p>打开 手机钉钉<br>
-                                    扫一扫完成登录
-                                    </p>
+
+                            <div class="bd-landing" style="margin-top:80px">
+                                <input id="submit" class="bd-landing" type="button" value="钉钉扫码登陆" onclick="dingHerf()">
                             </div>
                         </div>
                     </form>
@@ -82,12 +77,12 @@
             </div>
         </div>
     </div>
-
-</body>
 <script>
-    ;
+function dingHerf() {
+    window.location.href="https://oapi.dingtalk.com/connect/qrconnect?appid=dingoabthjjpaqfsbblutq&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=http://bread.varsion.cn/pc/html/loading.html";
+}
 </script>
 <script src="../font/iconfont.js"></script>
-<script src="../js/page_js/supadlanding.js"></script>
-
+<script src="../js/supadlanding.js"></script>
+</body>
 </html>

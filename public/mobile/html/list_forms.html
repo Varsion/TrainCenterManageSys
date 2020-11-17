@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
-  <title>实验室实训中心</title>
+  <title>表单列表</title>
 
   <link rel="stylesheet" href="../layui/css/layui.css" media="all">
   <link rel="stylesheet" href="../css/list_forms.css" media="all">
@@ -15,12 +15,6 @@
 
   <!-- 你的HTML代码 -->
   <!-- 头部 -->
-
-   <!-- 头部：标题+返回键 -->
-<div class="app_header">
-    <a href="#" class="back_btn" onclick="back()"><i class="layui-icon  layui-icon-left"></i></a>
-    <a href="" class="title">表单编号</a>
-</div>
 <!-- 按钮：审批+历史 -->
 <div class="app_middle">
     <div class="app_btn">
@@ -40,7 +34,7 @@
         <option value="4">实验室运行记录表</option>
         <option value="5">开放实验室</option>
       </select> 
-      <select name="status" id="status"lay-verify="" class="status" onchange="category()">
+      <select name="status" id="status" lay-verify="" class="status" onchange="category()">
         <option value="0">所有状态</option>
         <option value="1">审批中</option>
         <option value="2">审批未通过</option>

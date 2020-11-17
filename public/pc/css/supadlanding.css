@@ -1,0 +1,113 @@
+html,body{
+   width: 100%;
+   height: 100%;
+}
+.am-box{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #5DC0FF , RGBA(139, 210, 255, 1),RGBA(190, 230, 255, 1));
+}
+.am-container
+{
+    width: 100%;
+    float: left;
+    padding: 15px 0 0 31px;
+}
+.am-g{
+    float: left;
+    position: fixed;
+    top: 20%;
+    height: auto;
+    width: 100%;
+}
+.am-u-lg-7{
+    height: auto;
+}
+.am-u-lg-7 img{
+    position: absolute;
+    right: 145px;
+}
+.am-landing-bd{
+    position: relative;
+    width: 520px;
+    height: 573px;
+    background: #FFFFFF;
+    box-shadow: 0px 9px 9px 1px rgba(3, 3, 3, 0.05), 0px 1px 7px 0px rgba(4, 0, 0, 0.2);
+    border-radius: 20px;
+}
+.bd-hd {
+   padding-top: 20px;
+   text-align: center;
+}
+.bd-hd p{
+
+    font-size: 27px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #38A1E3;
+
+}
+.iconfont{
+    color: RGBA(204, 205, 206, 1);
+    font-size: 35px;
+    float: left;
+    padding: 5px 0 0 10px;
+}
+.bd-inp{
+    text-align: center;
+}
+.inp-box{
+    margin: 29px auto;
+    width: 353px;
+    height: 66px;
+    background: RGBA(242, 242, 242, 1);
+    border-radius: 10px;
+}
+.inp-inp{
+    float: left;
+    width: 70%;
+    height: 70%;
+    margin:10px 0;
+    background-color: transparent;
+    outline: none;
+    border: none;   
+    font-size: 19px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #CCCDCE;
+}
+.bd-landing{
+    margin:48px auto;
+    text-align: center;
+    
+}
+.bd-landing input{
+    width: 354px;
+    height: 55px;
+    background: #59BFFF;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+}
+input::-webkit-input-placeholder {
+    color: #CCCDCE;
+}
+/* 提示框 */
+.inp-box-re{
+    width: 100%;
+    float: left;
+}
+.icon-tishi-copy{
+    color: red;
+    font-size: 25px !important;
+    float: left;
+}
+.inp-box-p{
+    float: left;
+    margin: 0;
+}

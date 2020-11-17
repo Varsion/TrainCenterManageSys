@@ -3,19 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>实训实验室管理平台</title>
+    <title>实验实训中心管理系统</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+		.loader{
+		    --size: 32px;
+		    --duration: 800ms;
+		    width: 96px;
+		    height: 64px;
+		    margin: 50px auto;
+		    transform-style: preserve-3d;
+		    transform-origin: 50% 50%;
+		    transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
+		    position: relative;
+		}
+		.loader .box{
+		    width:  32px;
+		    height: 32px;
+		    transform-style: preserve-3d;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		}
+		.loader .box:nth-child(1){
+		    transform: translate(100%, 0);
+		    animation: box1 800ms linear infinite;
+		}
+		.loader .box:nth-child(2){
+		    transform: translate(0, 100%);
+		    animation: box2 800ms linear infinite;
+		}
+		.loader .box:nth-child(3){
+		    transform: translate(100%, 100%);
+		    animation: box3 800ms linear infinite;
+		}
+		.loader .box:nth-child(4){
+		    transform: translate(200%, 0);
+		    animation: box4 800ms linear infinite;
+		}
+		.loader .box > div{
+		    --translateZ: calc(var(--size) / 2);
+		    --rotateY: 0deg;
+		    --rotateX: 0deg;
+		    background: #5c8df6;
+		    width: 100%;
+		    height: 100%;
+		    transform: rotateY(var(--rotateY)) rotateX(var(--rotateX)) translateZ(var(--translateZ));
+		    position: absolute;
+		    top: auto;
+		    right: auto;
+		    bottom: auto;
+		    left: auto;
+		}
+		.loader .box > div:nth-child(1){
+		    top: 0;
+		    left: 0;
+		}
+		.loader .box > div:nth-child(2){
+		    background: #145af2;
+		    right: 0;
+		    --rotateY: 90deg;
+		}
+		.loader .box > div:nth-child(3){
+		    background: #447cf5;
+		    --rotateX: -90deg;
+		}
+		.loader .box > div:nth-child(4){
+		    background: #dbe3f4;
+		    top: 0;
+		    left: 0;
+		    --translateZ: calc(var(--size) * 3 * -1);
+		}
+		@keyframes box1{
+		    0%, 50%{ transform: translate(100%, 0); }
+		    100%{ transform: translate(200%, 0); }
+		}
+		@keyframes box2{
+		    0%{ transform: translate(0, 100%); }
+		    50%{ transform: translate(0, 0); }
+		    100%{ transform: translate(100%, 0); }
+		}
+		@keyframes box3{
+		    0%, 50%{ transform: translate(100%, 100%); }
+		    100%{ transform: translate(0, 100%); }
+		}
+		@keyframes box4{
+		    0%{ transform: translate(200%, 0); }
+		    50%{ transform: translate(200%, 100%); }
+		    100%{ transform: translate(100%, 100%); }
+		}
+	</style>
 </head>
 <body>
-
+        <div class="demo" style="min-height:350px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 150px;">
+                    <div class="loader">
+                      <div class="box">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                      <div class="box">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                      <div class="box">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                      <div class="box">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                    </div>
+				</div>
+				<div class="col-md-12" style="text-align: center;margin-top: 100px;">
+					Loading...
+				</div>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div style="text-align: center;margin-top: 200px;">-->
+    <!--    <button onclick="page()" style="width: 300px;height: 100px;">页面跳转测试</button>-->
+    <!--</div>-->
+    
+    <!--<div style="text-align: center;margin-top: 100px;">-->
+    <!--    <button onclick="dingcode()" style="width: 300px;height: 100px;">获取Code</button>-->
+    <!--</div>-->
+    <!--<p id="dingcode-list">-->
+    
+    <!--</p>-->
+    
 <script src="mobile/js/opending/dingtalk.open.js"></script>
 <script src="mobile/js/jquery-1.12.3.js"></script>
 <script>
-$.(document).ready(function(){
+function dingcode(){
     dd.ready(function () {
         dd.runtime.permission.requestAuthCode({
             corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
             onSuccess: function (result) {
-            $.get('api/rolesdiscrete?code='+result.code,function(){
+                 $('#dingcode-list').empty().append(result.code);
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+}
+function page(){
+        dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                $.get('api/rolesdiscrete?code='+result.code,function(data){
+                    
                     window.location.href = "mobile/html/"+data.data;
                 });
             },
@@ -24,27 +175,13 @@ $.(document).ready(function(){
             }
         });
     });
-    
-    $.get('api/rolesdiscrete?code='+,function(){
-                    window.location.href = "mobile/html/"+data.data;
-                });
-
-})
-
-function CodeTest(){
-        dd.ready(function () {
-        dd.runtime.permission.requestAuthCode({
-            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
-            onSuccess: function (result) {
-            $.get('api/rolesdiscrete?code='+result.code,function(){
-                    window.location.href = "mobile/html/"+data.data;
-                });
-            },
-            onFail: function (err) {
-                alert("cuowu"+JSON.stringify(err));
-            }
-        });
 }
+
+$(document).ready(function(){
+        setTimeout(function() { 
+            page();
+        }, 1500);
+})
 </script>
 </body>
 </html>

@@ -8,6 +8,7 @@ use App\Http\Requests\Fill\FillLabBor\FillLabBorrowRequest;
 use App\Http\Requests\Fill\OpenLabUse\ViewLabBorrowRequest;
 use App\Models\Clas;
 use App\Models\Form;
+use App\Models\Approve;
 use App\Models\Laboratory;
 use App\Models\LaboratoryLoan;
 use Illuminate\Http\Request;
@@ -60,7 +61,6 @@ class FillLabBorController extends Controller
      * @return json
      */
     Public function fillLabBorrow(FillLabBorrowRequest $request){
-        $code = $request['code'];
         $form_id = 'A'.date("ymdis");
         $laboratory_id = $request['laboratory_id'];
         $course_name = $request['course_name'];
@@ -71,9 +71,14 @@ class FillLabBorController extends Controller
         $end_time = $request['end_time'];
         $start_class = $request['start_class'];
         $end_class = $request['end_class'];
+        $Dingtalk = getDinginfo($request['code']);
+        $name = $Dingtalk->name;
+        $tel = $Dingtalk->tel;
         $class_id = Clas::hwc_fillLabBorrow($class_name);
-        $data1 = Form::hwc_fillLabBorrow($form_id,$code);
-        $data2 = LaboratoryLoan::hwc_fillLabBorrow($code,$form_id,$laboratory_id,$course_name,$class_id,$number,$purpose,$start_time,$end_time,$start_class,$end_class);
+        $data1 = Form::hwc_fillLabBorrow($form_id,$name);
+        $data2 = LaboratoryLoan::hwc_fillLabBorrow($tel,$form_id,$laboratory_id,$course_name,$class_id,$number,$purpose,$start_time,$end_time,$start_class,$end_class);
+       Approve::tsy_save($form_id);
+
         return $data1&&$data2?
             json_success('填报实验室借用申请成功!',null,200) :
             json_fail('填报实验室借用申请失败!',null,100);

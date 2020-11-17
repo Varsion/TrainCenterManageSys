@@ -64,7 +64,7 @@ class Equipment extends Model
             $res = self::where('model','=',$model)
                 ->select('model','equipment_name','number','annex','equipment_id')
                 ->orderby('model','asc')
-                ->paginate(5);
+                ->paginate(8);
             return $res;
     }catch (\Exception $e) {
             logError('查询设备信息错误',[$e->getMessage()]);
@@ -179,7 +179,7 @@ class Equipment extends Model
         try{
             $res = self::select('equipment_id','equipment_name','model','number','annex')
                 ->orderby('model','asc')
-                ->paginate(5);
+                ->paginate(8);
             return $res;
         }catch (\Exception $e) {
             logError('获取设备展示信息失败',[$e->getMessage()]);

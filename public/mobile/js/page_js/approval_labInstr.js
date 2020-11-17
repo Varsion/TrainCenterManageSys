@@ -31,23 +31,23 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
      // ”审批不通过“弹出框:点击“确定”按钮
      
 
-     $(".no_ok_btn").click(function(){
-         
-                  dd.ready(function () {
+$(".no_ok_btn").click(function(){
+    
+if($("#suggest").val() ==""){
+        alert("审批意见为空噢~~~请输入")
+    }else{
+    dd.ready(function () {
         dd.runtime.permission.requestAuthCode({
             corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
             onSuccess: function (result) {
-                 if($("#suggest").val() ==""){
-             alert("审批意见为空噢~~~请输入")
-         }
-         else{
+    
              $.ajax({
                  url: SERVER_PATH + 'api/approval/noPass',
                  type: 'POST',
                  dataType: 'json',
                  data:{
-                     code:200,
-                     form_id:$(".table_no").html(),
+                     code:result.code,
+                     form_id:$("#form_id").html(),
                      reason:$("#suggest").val(),
                  },
                  success: function (data) {
@@ -77,7 +77,7 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
              })
              $(".pop").hide()
         $("#no_dialog").hide()
-         }
+        
         app_status=2
             },
             onFail: function (err) {
@@ -85,10 +85,9 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
             }
         });
     });
-
-        
+    }
+    
     })
-
 
     /**
      * 实验室仪器设备借用单审核通过
@@ -101,18 +100,20 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
      */
  // 点击“审批通过”按钮：蒙版+审批意见 显现
  $(".ok_app").click(function(){
-     $.ajax({
+    dd.ready(function () {
+    dd.runtime.permission.requestAuthCode({
+        corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+        onSuccess: function (result) {
+        $.ajax({
          url: SERVER_PATH + 'api/approval/pass',
          type: 'GET',
          dataType: 'json',
          data:{
-             code:200,
+             code:result.code,
              form_id:$("#form_id").html(),
          },
          success: function (data) {
-             alert((".table_no").html());
              if (data.code === 200) {
-                 console.log('实验室仪器设备借用单审核通过');
                  $(".ok_btn").click(function(){
                      window.location.href ='approval_no.html'
                      $(".pop").hide()
@@ -136,6 +137,13 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
              })
          }
      })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+     
     $(".pop").show()
     $("#ok_dialog").show()
 })
@@ -149,7 +157,6 @@ var url = window.location.href;
  */
 $(document).ready(function (){
     var form_id = url.split('?')[1];
-    console.log(form_id);
     $.ajax({
         type: "GET",
         url:"http://bread.varsion.cn/api/approval/reshow?form_id=" + form_id,
@@ -199,9 +206,6 @@ $(document).ready(function (){
                                str += `</table></form>`
                 $('.labLoan_form').empty();
                 $('.labLoan_form').append(str);
-                str = `表单编号：${form_id}`
-                $('.table_no').empty();
-                $('.table_no').append(str);
                 $("#form_id").append(form_id);
             }
             if(data.code === 100) {
@@ -211,4 +215,5 @@ $(document).ready(function (){
             console.log("error")
         }
     })
+    
 })

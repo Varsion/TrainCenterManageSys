@@ -15,19 +15,21 @@ window.onload = function () {
     //解析参数
     var url=location.search;
     var formid;
+    
     var Request = new Object();
     if(url.indexOf("?")!=-1)
     {
-    var str = url.substr(1);
-    strs= str.split("&");
-    for(var i=0;i<strs.length;i++)
+        var str = url.substr(1);
+        strs= str.split("&");
+        for(var i=0;i<strs.length;i++)
     {
     Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
     }
     }
     formid= Request["form_id"];
+    alert(formid);
     console.log(formid);
-        var SERVER_PATH = 'http://bread.varsion.cn/'
+    var SERVER_PATH = 'http://bread.varsion.cn/'
     
 
     
@@ -40,6 +42,7 @@ window.onload = function () {
             url: SERVER_PATH + "/api/fill/viewopenlabuse",
             data: { form_id:formid },// 将json数据转化为字符串
             success: function (data) {
+                alert(data.data.borrow_department);
                 console.log(data)
                 //成功函数回显
                 console.log(data.data.borrow_department)
@@ -175,7 +178,7 @@ window.onload = function () {
     
             },
             error: function (data) {
-            
+                alert("1");
                 console.log(data)
             }
         })

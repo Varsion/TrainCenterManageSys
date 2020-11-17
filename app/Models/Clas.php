@@ -21,7 +21,7 @@ class Clas extends Model
         try{
             $date=clas::join('department','department.department_id','class.department_id')
                 ->select('*')
-                ->paginate(5);
+                ->paginate(8);
             return $date;
         }catch (Exception $e){
             logger::Error('班级界面展示失败',[$e->getMessage()]);
@@ -112,7 +112,7 @@ class Clas extends Model
         try{
             $date=clas::join('department','department.department_id','class.department_id')
                 ->where('class_name','like','%'.$tby['class_name'].'%')
-                ->paginate(5);
+                ->paginate(8);
             return $date;
         }catch (Exception $e){
             logger::Error('班级修改失败',[$e->getMessage()]);
