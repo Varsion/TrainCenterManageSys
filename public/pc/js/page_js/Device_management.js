@@ -1,44 +1,59 @@
 var SERVER_PATH = 'http://bread.varsion.cn/'
-$(function () {
-    show();
-})
-//展示页面
-function show() {
-    $.ajax({
-        type: "get",
-        url:  SERVER_PATH+"api/supadmin/shownew",
-        dataType: "json",
-        success: function (data) {
-            if (data.code == 200) {
+//获取展示的总页数
+var totalPageasd = 2;
 
-                console.log("展示页面" + data.msg)
-            }
-            if (data.code == 100) {
-                console.log("展示页面" + data.msg)
-            }
-            let str = ``
-            //console.log(data);
+$.ajax({
+    type: "get",
+    cache: true,
+    url: SERVER_PATH+"api/supadmin/shownew",
+    dataType: 'json',
+    async: false,
+    success: function (data) {
+        console.log(data.data.last_page)
+        totalPageasd = data.data.last_page
+    },
+    error: function (e) {
+    }
+});
+//根据获取到的展示总页数分页展示
+$.jqPaginator('#pagination2', {
+    totalPages: totalPageasd,
+    visiblePages: 8,
+    currentPage: 1,
+    first: '<li class="first" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:;">前一页</a></li>',
+    next: '<li class="next" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">尾页</a></li>',
+    page: '<li class="page" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:;">{{page}}</a></li>',
+    onPageChange: function (num) {
+        $.get(SERVER_PATH+"api/supadmin/shownew?page=" + num, function (data) {
+            var str = '';
+            console.log(data.code)
             for (var i = 0; i < data.data.data.length; i++) {
-                str += `
-                   <tr class="am-text-center am-text-middle">
-                            <input type="hidden" name="equipment_id" id="equipment_id" value="${data.data.data[i].equipment_id}">
-                            <td class="am-text-center am-text-middle" id="equipment_name">${data.data.data[i].equipment_name}</td>
-                            <td class="am-text-center am-text-middle" id="model">${data.data.data[i].model}</td>
-                            <td class="am-text-center am-text-middle" id="number">${data.data.data[i].number}</td>
-                            <td class="am-text-center am-text-middle" id="annex"><span class="thcom">${data.data.data[i].annex}</span></td>
-                            <td class="am-text-center am-text-middle">
-                                <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}" onclick="goBack(${data.data.data[i].equipment_id})">修改</button>
-                                <button type="button" class="but-use" onclick="rmNew(${data.data.data[i].equipment_id})">删除</button>
-                            </td>
-                        </tr>
-                  
-                  `
+                str += ` 
+                 <tr class="am-text-center am-text-middle">
+                    <td hidden><input type="text" value=${data.data.data[i].equipment_id} id="lab_id" hidden ></td>
+                    <td class="am-text-center am-text-middle">${data.data.data[i].equipment_name}
+                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].model}</span></td>
+                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].number}</span></td>
+                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].annex}</span></td>
+                    
+                    <td class="am-text-center am-text-middle">
+                    <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}" onclick="goBack(${data.data.data[i].equipment_id})">修改</button>
+                    <button type="button" class="but-use  site_delete" onclick="rmNew(${data.data.data[i].equipment_id})">删除</button>
+                    </td>
+                  </tr>
+                `
             }
-            $('#table_list').empty().append(str);
+            //console.log(str);
+            $('#table_list').empty();
+            $('#table_list').append(str);
 
-        }
-    })
-}
+        })
+    }
+});
+
+
 //新增
 function addDevice(){
     $.ajax({
@@ -106,6 +121,7 @@ function searchNew(){
 
 //删除
 function rmNew(equipment_id) {
+        if(confirm("确定删除嘛？"))
         $.ajax({
             type: "post",
             dataType: "json",
@@ -124,6 +140,9 @@ function rmNew(equipment_id) {
                 location.reload();
             }
         })
+        else{
+            
+        }
 }
 
 //回显
@@ -224,59 +243,4 @@ function  exitnew(){
     )
 }
 
-function showp(){
-//获取展示的总页数
-$.ajax({
-    type: "get",
-    cache: true,
-    url: SERVER_PATH+"api/supadmin/shownew",
-    dataType: 'json',
-    async: false,
-    success: function (data) {
-        console.log(data.data)
-        totalPageasd = data.data.last_page
-        console.log(data.data.last_page)
-    },
-    error: function (e) {
-    }
-});
-//根据获取到的展示总页数分页展示
-$.jqPaginator('#pagination2', {
-    totalPages: totalPageasd,
-    visiblePages: 8,
-    currentPage: 1,
-    first: '<li class="first" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">首页</a></li>',
-    prev: '<li class="prev" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:;">前一页</a></li>',
-    next: '<li class="next" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">下一页</a></li>',
-    last: '<li class="last" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:void(0);">尾页</a></li>',
-    page: '<li class="page" style="margin-left: 10px; margin-right: 10px;"><a href="javascript:;">{{page}}</a></li>',
-    onPageChange: function (num) {
-        $.get(SERVER_PATH+"api/supadmin/shownew?page=" + num, function (data) {
-            var str = '';
-            console.log(data.code)
-            for (var i = 0; i < data.data.data.length; i++) {
-                str += ` 
-                 <tr class="am-text-center am-text-middle">
-                    <td hidden><input type="text" value=${data.data.data[i].equipment_id} id="lab_id" hidden ></td>
-                    <td class="am-text-center am-text-middle">${data.data.data[i].equipment_name}
-                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].model}</span></td>
-                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].number}</span></td>
-                    <td class="am-text-center am-text-middle"><span class="thcom">${data.data.data[i].annex}</span></td>
-                    <td class="am-text-center am-text-middle layui-input-block">
-                                
-                    </td>
-                    <td class="am-text-center am-text-middle">
-                    <button type="button" class="btn-look" id="btn-look1" data-am-modal="{target: '#movedalert'}" onclick="goBack(${data.data.data[i].equipment_id})">修改</button>
-                    <button type="button" class="but-use  site_delete" >删除</button>
-                    </td>
-                  </tr>
-                `
-            }
-            //console.log(str);
-            $('#table_list').empty();
-            $('#table_list').append(str);
 
-        })
-    }
-});
-}

@@ -36,12 +36,16 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
              alert("审批意见为空噢~~~请输入")
          }
          else{
-             $.ajax({
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+            $.ajax({
                  url: SERVER_PATH + 'api/approval/noPass',
                  type: 'POST',
                  dataType: 'json',
                  data: {
-                     code: 200,
+                     code: result.code,
                      form_id: $("#form_id").html(),
                      reason: $("#suggest").val(),
                  },
@@ -70,6 +74,13 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
                      })
                  }
              })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    });
+            
              $(".pop").hide()
         $("#no_dialog").hide()
          }
@@ -87,12 +98,17 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
      */
  // 点击“审批通过”按钮：蒙版+审批意见 显现
  $(".ok_app").click(function(){
-     $.ajax({
+     
+    dd.ready(function () {
+        dd.runtime.permission.requestAuthCode({
+            corpId: "dingd5aca511ee4b636bee0f45d8e4f7c288",
+            onSuccess: function (result) {
+                $.ajax({
          url: SERVER_PATH + 'api/approval/pass',
          type: 'GET',
          dataType: 'json',
          data: {
-             code: 200,
+             code: result.code,
              form_id: $("#form_id").html(),
          },
          success: function (data) {
@@ -121,6 +137,14 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
              })
          }
      })
+            },
+            onFail: function (err) {
+                alert("cuowu"+JSON.stringify(err));
+            }
+        });
+    }); 
+     
+     
     $(".pop").show()
     $("#ok_dialog").show()
 })
@@ -174,10 +198,10 @@ $(document).ready(function (){
                                 <td>${data.data.open_lab_list[i].phone}</td>
                                 <td>${data.data.open_lab_list[i].work}</td>
                               </tr>`
+                }
                     $('.labLoan_form').empty();
                     $('.labLoan_form').append(str);
                     $("#form_id").append(form_id);
-                }
             }
             if(data.code === 100) {
                 console.log(data.msg);

@@ -33,7 +33,7 @@ class Form extends Model
             $data = self::select('form_id', 'applicant_name', 'updated_at')
                 ->where('type_id', 1)
                 ->where('form_status', 11)
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('实验室借用申请表展示错误', [$e->getMessage()]);
@@ -78,7 +78,7 @@ class Form extends Model
                 ->where('type_id', 1)
                 ->where('form_status', 11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('实验室借用申请表搜索展示错误', [$e->getMessage()]);
@@ -119,7 +119,7 @@ class Form extends Model
             $data = self::select('form_id', 'applicant_name', 'updated_at')
                 ->where('type_id', 5)
                 ->where('form_status', 11)
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('开放实验室使用申请表展示错误', [$e->getMessage()]);
@@ -141,7 +141,7 @@ class Form extends Model
                 ->where('type_id', 2)
                 ->where('form_status', 11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('开放实验室使用申请表搜索展示错误', [$e->getMessage()]);
@@ -160,7 +160,7 @@ class Form extends Model
             $data = self::select('form_id', 'applicant_name', 'updated_at')
                 ->where('type_id', 3)
                 ->where('form_status', 11)
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('实验室仪器借用申请表展示错误', [$e->getMessage()]);
@@ -182,7 +182,7 @@ class Form extends Model
                 ->where('type_id', 3)
                 ->where('form_status', 11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('实验室仪器借用申请表搜索展示错误', [$e->getMessage()]);
@@ -261,12 +261,12 @@ class Form extends Model
      * @return array
      * @author HuWeiChen <github.com/nathaniel-kk>
      */
-    public static function hwc_openLabUseBor($form_id, $code)
+    public static function hwc_openLabUseBor($form_id, $name)
     {
         try {
             $data = self::create([
                 'form_id' => $form_id,
-                'applicant_name' => getDinginfo($code)->name,
+                'applicant_name' => $name,
                 'type_id' => 5,
                 'form_status' => 1,
             ]);
@@ -411,7 +411,7 @@ class Form extends Model
             $data = self::select('form_id', 'applicant_name', 'updated_at')
                 ->where('type_id', 4)
                 ->where('form_status', 11)
-                ->paginate(5);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('期末教学记录检查表展示错误', [$e->getMessage()]);
@@ -433,7 +433,7 @@ class Form extends Model
                 ->where('type_id', 4)
                 ->where('form_status', 11)
                 ->whereRaw("concat(`form_id`,`applicant_name`) like '%" . $form_id . "%'")
-                ->paginate(6);
+                ->paginate(8);
             return $data;
         } catch (\Exception $e) {
             logError('期末教学记录检查表页面搜索展示错误', [$e->getMessage()]);
@@ -585,12 +585,12 @@ class Form extends Model
      * @return array
      * @author HuWeiChen <github.com/nathaniel-kk>
      */
-    public static function hwc_fillLabBorrow($form_id, $code)
+    public static function hwc_fillLabBorrow($form_id, $name)
     {
         try {
             $data = self::create([
                 'form_id' => $form_id,
-                'applicant_name' => getDinginfo($code)->name,
+                'applicant_name' => $name,
                 'type_id' => 1,
                 'form_status' => 1,
             ]);

@@ -16,7 +16,7 @@ class Laboratory extends Model
      */
     public static function dc_getFormInfo(){
         try {
-            $data = self::paginate(5);
+            $data = self::paginate(8);
             return $data;
         }catch (\Exception $e){
             logError('获取实验室表信息错误',$e->getMessage());
@@ -55,8 +55,8 @@ class Laboratory extends Model
         try {
             $data['laboratory_name']?
                 $rs = self::where('laboratory_name','like','%'.$data['laboratory_name'].'%')
-                    ->paginate(5):
-                $rs = self::paginate(5);
+                    ->paginate(8):
+                $rs = self::paginate(8);
             return $rs;
 
         }catch (\Exception $e){

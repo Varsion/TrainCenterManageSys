@@ -2,7 +2,7 @@ var SERVER_PATH = 'http://bread.varsion.cn/'
 
 
 var totalPageasd = 2;
-
+//获取分页页数
 $.ajax({
     type: "get",
     cache: true,
@@ -18,6 +18,7 @@ $.ajax({
     error: function(e) {
     }
 });
+//初始化分页器
 $.jqPaginator('#pagination2', {
     totalPages: totalPageasd,
     visiblePages: 8,
